@@ -135,8 +135,8 @@ design-evolutivo/
     studia.md              come analizza un sito che ti piace
     esempio-ciclo.md       un esempio completo su tre progetti
   memoria/                 cambia con l'uso
-    profilo-gusto.md       tendenze per gene (oggi: ipotesi dai tuoi 8 siti)
-    regole-apprese.md      regole attive (oggi: i tre "da non fare" che hai approvato)
+    profilo-gusto.md       tendenze per gene (all'inizio: ricavate dai tuoi 8 siti e confermate da te)
+    regole-apprese.md      regole attive (all'inizio: i "da non fare" che hai scelto)
     catalogo-errori.md     classi d'errore (vuoto)
     semi.md                idee tue, dei riferimenti e nate nei progetti
     diario-evoluzione.md   versioni e metriche

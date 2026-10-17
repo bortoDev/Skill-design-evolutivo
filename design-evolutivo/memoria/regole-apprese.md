@@ -32,9 +32,7 @@ Proposti all'utente il 17/10/2026 e non scelti come regola: non hanno un control
 - La sequenza da template: loghi dei clienti, funzioni, testimonianze, FAQ, invito finale, footer a 4 colonne.
 - Macchie sfocate, sfumature a rete o griglie di puntini usate come riempitivo.
 - Animazione di comparsa su ogni sezione durante lo scorrimento.
-
-Ancora da chiedere all'utente:
-- Una sola famiglia neutra per tutto, senza un gesto tipografico.
+- Una sola famiglia neutra per tutto, senza un gesto tipografico (non è una regola: il suo contrario è la tendenza G2 del profilo).
 
 ## Ritirate
 (nessuna)

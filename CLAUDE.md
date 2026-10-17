@@ -26,7 +26,7 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 4. **Una sola skill con più modalità**, non skill separate. Creazione e critica condividono una sola memoria, e nel contesto c'è una sola descrizione. Un critico indipendente si ottiene con un subagente (`processo/rivedi.md` §7).
 5. **La skill non si riscrive da sola.** Ogni cosa appresa si annuncia in una riga, e l'utente può correggerla o ritirarla. Le regole nuove sono proposte: decide l'utente. È il principio di intelligibilità e controllo sull'automazione del suo corso: non introdurre meccanismi che cambiano la memoria in silenzio.
 6. **"Cambia almeno 1 gene su 5"** rispetto ai riferimenti e all'ultimo progetto è una scelta dell'utente (prima era 3 su 5): non riportarla a 3. La direzione C ne cambia almeno 3 per costruzione, ma è un'altra regola.
-7. **Nella memoria iniziale, solo ciò che l'utente ha approvato vale come regola.** Approvati: la lezione di processo "niente di standard per abitudine" e le regole R-001–R-017 di `memoria/regole-apprese.md`. Per l'utente "standard" non vuol dire vietato: una soluzione comune va bene se è adeguata alla situazione, e il motivo va in `DESIGN.md`. Non trasformare le regole in divieti assoluti, tranne R-014 (dati inventati). I "default da evitare" non scelti e le 5 tendenze del profilo restano ipotesi: non promuoverli senza la sua conferma.
+7. **Nella memoria iniziale, solo ciò che l'utente ha approvato vale come regola.** Approvati: la lezione di processo "niente di standard per abitudine" e le regole R-001–R-017 di `memoria/regole-apprese.md`. Per l'utente "standard" non vuol dire vietato: una soluzione comune va bene se è adeguata alla situazione, e il motivo va in `DESIGN.md`. Non trasformare le regole in divieti assoluti, tranne R-014 (dati inventati). I "default da evitare" non scelti restano non attivi: non promuoverli senza la sua conferma. Il profilo di gusto è stato calibrato con l'utente il 17/10/2026: non cambiare le tendenze confermate, né quelle lasciate al brief, senza di lui.
 8. **Richiama le altre skill, non copiarle** (`frontend-design`, `design-critique`, `accessibility-review`…). Questa skill contiene solo ciò che le altre non sanno: gusto, memoria ed evoluzione.
 9. **I file letti a ogni lavoro restano corti.** `SKILL.md` fa da indice e i dettagli stanno in file letti solo quando servono; i limiti sono 40 regole e 80 righe di profilo. La descrizione nel frontmatter mette all'inizio le parole chiave (interfacce, siti, app, schermate), perché con molte skill installate Claude Code la accorcia.
 10. **Ogni versione nuova va in `STORIA.md`**, nella tabella delle versioni e nello stato del piano. I commit dicono cosa cambia e perché.
@@ -38,8 +38,8 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 - Controllo rapido degli strumenti: `node design-evolutivo/strumenti/contrasto.mjs "#87CBC3" "#fff"` deve dare 1,85:1 (il menta di Montenellago).
 - La modalità `studia` e le misure su pagine vere richiedono un browser controllabile da Claude Code (per esempio Claude in Chrome); tutto il resto funziona senza.
 
-## Stato (v0.5, 16/10/2026)
-**Provato:**
+## Stato (v0.7, 17/10/2026)
+**Provato** (sulla v0.5, il 16/10/2026; le regole e il profilo aggiunti dopo non sono ancora stati provati in una sessione):
 - la skill si carica sia come skill personale sia come skill di progetto, e legge la memoria;
 - i permessi;
 - il promemoria facoltativo, solo nei progetti con `DESIGN.md`;
@@ -48,7 +48,7 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 
 **Ancora da fare:**
 - **apprendimento tra sessioni.** Correzione → regola → sessione nuova che non ripete l'errore: sono le prove 1–6 di `README.md`, mai eseguite;
-- **calibrazione del gusto** con l'utente: i "da non fare" sono fatti (17/10/2026); restano le 5 tendenze del profilo, la sezione "Non ancora noto" del profilo (base chiara o scura, densità, movimento, tono per prodotti seri) e un default ancora da chiedere;
+- **gusto**: "da non fare" e profilo sono fatti (17/10/2026). Mancano le cose da fare sempre, se l'utente ne ha, e le voci di "Non ancora noto" nel profilo (immagini, stile delle icone);
 - **metriche di tipografia e spaziatura** (scale, griglie), da verificare prima di scriverle;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 
