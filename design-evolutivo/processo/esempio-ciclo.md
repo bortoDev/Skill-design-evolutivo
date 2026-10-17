@@ -31,7 +31,7 @@ Leggi questo file se non è chiaro come applicare `evoluzione.md`. Tre progetti 
 
 **Feedback F-110 (correzione):** "Le icone dei servizi sono troppo grosse, rubano la scena alle foto."
 1. Astrazione: istanza icone da 64 px | proprietà: un elemento di supporto più evidente del contenuto | tendenza: *Tendo a dare peso da protagonista a elementi di supporto* | causa: C5.
-2. Confronto: stessa tendenza e stessa causa di E-101, anche se un'icona non somiglia a un titolo → **stessa classe**. Firma riscritta più generale: *Tendo a dare peso da protagonista a elementi di supporto (titoli di orientamento, numeri, icone)*.
+2. Confronto: stessa tendenza di E-101, anche se un'icona non somiglia a un titolo → **stessa classe**. Sarebbe la stessa classe anche se la causa fosse un'altra (per esempio C2: icone dimensionate senza guardare la gerarchia). Firma riscritta più generale: *Tendo a dare peso da protagonista a elementi di supporto (titoli di orientamento, numeri, icone)*.
 3. R-101 parlava solo di testo: il caso non era coperto. È **conoscenza incompleta**, non esecuzione → la regola si allarga, il livello resta L3:
    `R-101 · L3 · sempre · Gli elementi di supporto (titoli di orientamento, numeri, icone, decorazioni) non attirano più attenzione del contenuto principale. · Controllo: elenca i 3 elementi più evidenti per schermata, con dimensione e ruolo; nessun elemento di supporto supera 2× il testo vicino né è più evidente del contenuto. · Da: E-101 (3 occ.)`
 4. Contro-esempio aggiunto a E-101: "Il titolo unico della pagina d'ingresso della cantina, grande per scelta e approvato (F-111): non è questo errore, perché lì il titolo è il contenuto."

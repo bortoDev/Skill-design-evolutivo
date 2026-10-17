@@ -13,6 +13,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | v0.6 | 17/10/2026 | Repository git come base di partenza (la skill evolve nella copia installata); `CLAUDE.md` per lo sviluppo; i tuoi "da non fare": lezione di processo "niente di standard per abitudine" e regole R-004–R-017; brief con l'analisi del pubblico, che decide quanto possono essere complessi i testi | la tua decisione sulla base di partenza e le tue risposte sui "da non fare" |
 | v0.7 | 17/10/2026 | Profilo di gusto calibrato con te: tipografia, colore, forme e voce confermate (voce più sobria nei prodotti seri); struttura e fondo chiaro o scuro lasciati al brief; movimento espressivo e densità ariosa | le tue risposte sul profilo |
 | v0.8 | 17/10/2026 | `processo/analisi.md`: prima di disegnare, stakeholder, compiti con priorità (essenziale, importante, marginale), domande che cambiano il risultato e piano a pezzi approvato da te; costruzione un pezzo alla volta con feedback; R-018 (tutti gli stati); immagini lasciate al brief, icone il meno possibile | la tua richiesta di "ingegnerizzare il progetto e organizzarlo a pezzi" |
+| v0.9 | 17/10/2026 | Prima prova di apprendimento: 3 progetti finti e 7 sessioni nuove. La memoria tra sessioni funziona; il riconoscimento dello stesso errore in punti diversi falliva ed è stato corretto (la firma è la tendenza, non tendenza + causa), poi riprovato con successo. La verifica annota le osservazioni controllate; diario e versioni sono più espliciti | i risultati della prova (`README.md`, "Prova di apprendimento") |
 
 ## Il piano iniziale in 7 passi
 | Passo | Stato | Dove |
@@ -33,6 +34,6 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 Dal 17/10/2026 la copia di riferimento è il repository git `bortoDev/skill-design-evolutivo`, cartella `design-evolutivo/`. Gli zip `design-evolutivo.zip` e `design-skill-esempi.zip` non servono più. Il repository è la **base di partenza**: per usarla, copia la cartella in `~/.claude/skills/`. Da lì la skill evolve da sola. Ciò che impara resta nella `memoria/` della copia installata e nel suo diario, e non torna nel repository, che cambia solo quando si migliora la base.
 
 ## Prossimi passi
-- Prova di apprendimento tra sessioni (la prova 2 del README).
+- Prove ancora da fare: la terza fase della generalizzazione (un caso nuovo intercettato da sola), l'ambito, l'escalation, "dimentica…" e una prova in sessione interattiva.
 - Metriche di tipografia e spaziatura, da verificare prima di scriverle.
 - Plugin, con la memoria fuori dalla cartella del plugin.

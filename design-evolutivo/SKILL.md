@@ -30,9 +30,9 @@ Una sola skill, una sola memoria: ogni modalità legge e alimenta lo stesso gust
 Vale in tutte le modalità. Quando l'utente giudica qualcosa che hai proposto o osservato (corregge, preferisce, sceglie, approva, respinge un'osservazione, propone un'idea), prima di continuare:
 1. **Registra** le sue parole esatte in `${CLAUDE_SKILL_DIR}/memoria/registro/AAAA-MM-GG-<progetto>.md` (formato in `memoria/registro/_modello.md`).
 2. **Correggi** subito e **cerca le altre istanze** dello stesso problema nel lavoro attuale; correggile e dillo in una riga.
-3. **Astrai** con la scala a 4 gradini (istanza → proprietà → tendenza → causa) e **confronta** con `memoria/catalogo-errori.md`: è la stessa classe se tendenza e causa coincidono, anche in elementi, schermate o progetti diversi.
+3. **Astrai** con la scala a 4 gradini (istanza → proprietà → tendenza → causa) e **confronta** con `memoria/catalogo-errori.md`: è la stessa classe se descrive lo stesso effetto sbagliato, anche in elementi, schermate o progetti diversi e anche con una causa diversa. Nel dubbio, se non puoi chiedere, considerala la stessa classe e dillo.
 4. **Applica la soglia**: regola esplicita o fastidio forte → regola subito; correzione normale → regola alla seconda occorrenza della stessa classe. Se la classe ha già una regola e l'errore torna, **sali di livello** (controllo → vincolo → automatico).
-5. **Annuncia** in una riga: "Annotato: …" per una prima osservazione; "Imparato: … · vale per … · se è sbagliato dimmelo." quando nasce, si allarga o sale di livello una regola.
+5. **Annuncia** in una riga: "Annotato: …" per una prima osservazione; "Imparato: … · vale per … · se è sbagliato dimmelo." quando nasce, si allarga o sale di livello una regola. In questi casi aggiungi anche una riga al diario (`memoria/diario-evoluzione.md`, "Modifiche dall'ultimo consolidamento").
 
 Dettagli, formati e casi limite: `processo/evoluzione.md`. Esempio completo: `processo/esempio-ciclo.md`.
 

@@ -28,7 +28,7 @@ Perché ci sia evoluzione servono tre cose; se ne manca una, non c'è:
 | File | Contiene | Si legge | Si scrive | Limite |
 |---|---|---|---|---|
 | `registro/AAAA-MM-GG-<progetto>.md` | episodi grezzi: direzioni proposte, scelte, feedback citati, errori intercettati | nel consolidamento | subito, a ogni feedback | nessuno (archivio) |
-| `catalogo-errori.md` | classi d'errore: firma, causa, segnali, occorrenze, contro-esempi | a ogni correzione e in verifica | a ogni correzione | ~60 classi, poi unire |
+| `catalogo-errori.md` | classi d'errore: firma, cause per occorrenza, segnali, occorrenze, contro-esempi | a ogni correzione e in verifica | a ogni correzione | ~60 classi, poi unire |
 | `regole-apprese.md` | regole attive in una riga, con livello, ambito e controllo | all'inizio di ogni lavoro | a ogni promozione o cambio di livello | 40 regole |
 | `profilo-gusto.md` | tendenze per gene con confidenza e prove; stato dell'esplorazione | all'inizio di ogni lavoro | nel consolidamento | 80 righe |
 | `semi.md` | idee dell'utente, dei riferimenti e nate nei progetti, con esito | quando generi direzioni | quando nasce o si prova un'idea | unire i duplicati |
@@ -37,6 +37,7 @@ Perché ci sia evoluzione servono tre cose; se ne manca una, non c'è:
 Nel progetto, `DESIGN.md` (modello in `modelli/DESIGN.md`) tiene brief, direzione scelta, token ed eccezioni locali.
 
 Regole di scrittura:
+- Il numero di versione in testa a `profilo-gusto.md` e `regole-apprese.md` cambia solo nel consolidamento (§8): tra un consolidamento e l'altro le modifiche stanno nel diario.
 - Date AAAA-MM-GG. Identificativi stabili: E- classi, R- regole, S- semi (numerati in tutta la memoria); F- feedback (numerati dentro ogni file di registro: quando li citi altrove aggiungi il progetto, es. "F-002, app-yoga").
 - Non cancellare la storia: cambia lo stato (attiva, ristretta, ritirata) e scrivi il motivo.
 - Cita sempre le parole dell'utente: sono il dato grezzo. Se un'astrazione si rivela sbagliata, si rifà partendo da lì.
@@ -82,7 +83,10 @@ Un messaggio con più giudizi diventa più voci (F-001, F-002…). Formato della
 | 3 Tendenza | Quale mia abitudine lo produce? Inizia con "Tendo a…" | tendo a dare peso da protagonista a elementi che servono solo a orientare |
 | 4 Causa | Quale passo del processo l'ha generato? (§6.2) | C5 Effetto |
 
-La **firma** di una classe è tendenza + causa. È la firma, non il punto della pagina, a far riconoscere lo stesso errore in elementi che non si somigliano: un titolo, un'icona, un numero.
+La **firma** di una classe è la **tendenza**. È la firma, non il punto della pagina, a far riconoscere lo stesso errore in elementi che non si somigliano: un titolo, un'icona, un numero.
+- Scrivi la tendenza al livello più generale che le parole dell'utente permettono. Se nomina il tipo di elemento (titolo, icona, filtro…), è ancora una proprietà: sali di un gradino. "Troppo grande", "sembra un poster" e "ruba la scena" dicono tutte la stessa cosa: un peso sproporzionato rispetto al ruolo.
+- La **causa** è un'ipotesi su come è nato l'errore, e la stessa abitudine può nascere da passi diversi del processo. Si registra per ogni occorrenza e serve al doppio ciclo (§8), ma non decide se due errori sono lo stesso errore.
+- Se il catalogo, in una copia installata prima del 17/10/2026, descrive la firma come "tendenza + causa", vale comunque questa regola.
 
 ### 6.2 Vocabolario delle cause
 - **C1 Default**: scelta presa perché comune o attesa, non perché adatta. È l'origine dell'"effetto IA".
@@ -99,11 +103,11 @@ La **firma** di una classe è tendenza + causa. È la firma, non il punto della 
 Se nessuna causa calza, scrivi "C? …" con una frase; nel consolidamento si decide se aggiungerne una.
 
 ### 6.3 Stessa classe o classe nuova?
-Confronta la firma con quelle di `catalogo-errori.md`:
-- **tendenza e causa coincidono**, anche con elementi, schermate o progetti diversi → stessa classe: aggiungi l'occorrenza; se serve, riscrivi la firma in modo più generale e tieni tutti gli esempi;
-- coincide la tendenza ma non la causa → classe nuova, collegata ("vedi E-…");
-- coincide solo la causa → classe nuova; la causa comune si valuta nel consolidamento (§8, doppio ciclo);
-- dubbio reale → chiedi in una riga: "È lo stesso problema di E-003 (…)?"
+Confronta la proprietà e la tendenza del nuovo errore con quelle di ogni classe di `catalogo-errori.md`:
+- **Stessa classe** se la proprietà o la tendenza descrivono lo stesso effetto sbagliato, anche con elementi, schermate, progetti o cause diverse. Aggiungi l'occorrenza con la sua causa, riscrivi la firma al livello più generale che copre tutte le occorrenze e tieni tutti gli esempi.
+- **Prova pratica**: una regola scritta per la classe esistente, allargata di poco, avrebbe evitato anche il nuovo errore? Se sì, è la stessa classe.
+- **Classi diverse** se cambia l'effetto sbagliato. Se due classi hanno solo la causa in comune, quella causa si valuta nel consolidamento (§8, doppio ciclo).
+- **Dubbio reale**: chiedi in una riga: "È lo stesso problema di E-003 (…)?" Se non puoi chiedere, scegli "stessa classe" e dillo. Una regola un po' larga si restringe con una parola; un errore ripetuto è ciò che l'utente vuole evitare.
 
 Ogni classe ha almeno un **contro-esempio**: un caso simile che NON è questo errore. Impedisce di generalizzare troppo.
 

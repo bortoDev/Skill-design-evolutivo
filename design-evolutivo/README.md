@@ -73,7 +73,7 @@ Claude non cambia dentro tra una sessione e l'altra: cambia la **memoria** che l
 | dati | il registro: le tue parole esatte, progetto per progetto |
 | pesi del modello | regole apprese, profilo di gusto, semi |
 | velocità di apprendimento | regola alla 2ª occorrenza dello stesso errore (alla 1ª se dici "mai" o se ti arrabbi) |
-| generalizzazione | errori diversi in superficie, stessa **firma** (tendenza + causa) → stessa classe |
+| generalizzazione | errori diversi in superficie, stessa **firma** (la tendenza, cioè lo stesso effetto sbagliato) → stessa classe |
 | overfitting | ambito (progetto, tipo, piattaforma, sempre) e contro-esempi |
 | esplorazione | la direzione C, sempre presente, con distanza che si adatta alle tue scelte |
 | checkpoint | il diario delle versioni (e git) |
@@ -81,7 +81,7 @@ Claude non cambia dentro tra una sessione e l'altra: cambia la **memoria** che l
 Il ciclo: **proposta → risposta → feedback → correggere → imparare → migliorare → crescere**.
 
 Due meccanismi fanno la differenza:
-- **Riconoscere lo stesso errore in punti diversi.** Ogni correzione sale una scala: istanza ("titolo a 40 px") → proprietà ("troppo grande per il suo ruolo") → tendenza ("tendo a dare peso da protagonista agli elementi di supporto") → causa ("cerco l'effetto"). Due correzioni con la stessa tendenza e causa sono lo stesso errore, anche se una riguarda un titolo e l'altra un'icona.
+- **Riconoscere lo stesso errore in punti diversi.** Ogni correzione sale una scala: istanza ("titolo a 40 px") → proprietà ("troppo grande per il suo ruolo") → tendenza ("tendo a dare peso da protagonista agli elementi di supporto") → causa ("cerco l'effetto"). Due correzioni con la stessa tendenza sono lo stesso errore, anche se una riguarda un titolo e l'altra un'icona, e anche se Claude ne attribuisce l'origine a cause diverse.
 - **Non ripeterlo.** Se un errore torna nonostante la regola, la regola sale di livello: da semplice nota, a controllo prima di consegnare, a vincolo nei token del progetto (il valore sbagliato non è più ammesso), a ricerca automatica nei file. È l'idea dei vincoli e delle funzioni obbliganti di Norman, applicata a Claude.
 
 **Creatore e critico.** La modalità crea propone, la modalità rivedi giudica: entrambe imparano dal tuo giudizio. Quando accetti o respingi un'osservazione, il critico impara a prevedere cosa ti importa, come un modello di ricompensa nell'apprendimento per rinforzo. La misura è l'**accordo**: la quota di osservazioni che accetti. Se sale, il critico ti conosce meglio; e la verifica prima di ogni consegna usa proprio il critico in versione rapida.
@@ -107,7 +107,24 @@ Se una prova fallisce, quella è la prossima cosa da migliorare nella skill.
 - `strumenti/contrasto.mjs` dà gli stessi rapporti calcolati a mano per gli 8 siti (10,01:1 per Dishoom, 1,85:1 per il menta di Montenellago, 2,74:1 per il corallo di okomedia).
 - `strumenti/misura-pagina.js`, provato su una pagina di prova con difetti noti, a 1440 e a 375 px: trova zoom bloccato, scorrimento orizzontale solo a 375 px, testi sotto il contrasto minimo (raggruppati per colore, dal peggiore), emoji usate come icone, gradiente viola, tre card uguali con ombra, 10 voci di menu e il paragrafo da 155 caratteri per riga. Durante la prova ho scoperto che in emulazione mobile la larghezza della finestra cresce fino al contenuto: ora lo script usa la larghezza visibile.
 - **Modalità rivedi**, in una sessione nuova (`/design-evolutivo rivedi index.html e stile.css`) sulla pagina di prova: ha caricato la memoria, ha calcolato i contrasti con lo strumento, ha distinto letto, calcolato e ipotesi, e ha trovato tutti i difetti che avevo inserito apposta (zoom, contrasti, riflusso, 10 voci di menu, bersagli piccoli, emoji, gradiente viola, card con ombra, testi generici, paragrafo lungo e centrato…), citando WCAG, principi U1–U12 e le regole R-001, R-002, R-003. Più altri problemi reali che non avevo previsto (titoli senza h2, font dichiarato ma non caricato, nessuno stato di focus). Ha chiuso con "Quali correggo?".
-- **Non ancora provato:** l'apprendimento vero e proprio tra sessioni (correzione → regola → sessione nuova che non ripete l'errore). È la prova 2 qui sopra.
+- L'apprendimento tra sessioni è stato provato il giorno dopo: vedi qui sotto.
+
+### Prova di apprendimento (17/10/2026, Claude Code 2.1.302, base v0.8)
+Tre progetti finti (pasticceria, app di una palestra, app di una biblioteca), 7 sessioni nuove e non interattive, con la memoria sotto git per vedere cosa cambiava dopo ogni sessione.
+
+| Prova | Esito |
+|---|---|
+| 1. Memoria tra sessioni | **riuscita**. "Mai testo tutto maiuscolo nei pulsanti" è diventata subito R-019; nei due progetti successivi è stata caricata e controllata con una ricerca nei file. |
+| 2. Generalizzazione | **fallita con la v0.8, riuscita dopo la correzione.** Dopo "il titolo è enorme" e poi "le icone sono troppo grosse", la v0.8 ha aperto una classe nuova invece di riconoscere lo stesso errore, perché ha attribuito ai due errori cause diverse. Corretto il metodo: la firma è la tendenza, la causa non decide più. Nella riprova le due correzioni sono diventate la stessa classe e la regola R-020 è nata alla seconda occorrenza. Non provata la terza fase: un caso nuovo intercettato da sola. |
+| 5. Novità | **riuscita** per quanto si vede nei registri: ogni progetto ha cambiato direzione rispetto al precedente, e una direzione è stata scartata perché violava una regola. |
+| 6. Trasparenza | **riuscita in parte**: "cosa sai del mio gusto?" dà un riassunto corretto e completo, con le prove. "Dimentica…" non è stato provato. |
+| 3. Ambito, 4. Escalation | non provate |
+
+Altre cose viste:
+- In queste sessioni, con Write ed Edit consentiti esplicitamente e la modalità `acceptEdits`, la scrittura nella memoria in `~/.claude/skills/` non è stata bloccata. In una sessione interattiva non l'ho riprovato.
+- La verifica non annotava quali osservazioni aveva controllato. Ora `processo/verifica.md` lo chiede.
+- Una volta non è stata scritta la riga nel diario dopo una regola nuova. Una volta il numero di versione è cambiato fuori dal consolidamento. Ora `SKILL.md` e `processo/evoluzione.md` lo dicono in modo esplicito.
+- Costo: da 0,30 a 0,87 $ e da 40 secondi a 4 minuti per sessione; circa 4,7 $ in tutto.
 
 ## Limiti
 - Se hai molte skill installate, Claude Code accorcia le descrizioni nell'elenco: per questo quella di questa skill mette all'inizio le parole chiave (interfacce, siti, app, schermate).

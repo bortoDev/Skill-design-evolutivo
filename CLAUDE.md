@@ -39,16 +39,28 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 - Controllo rapido degli strumenti: `node design-evolutivo/strumenti/contrasto.mjs "#87CBC3" "#fff"` deve dare 1,85:1 (il menta di Montenellago).
 - La modalità `studia` e le misure su pagine vere richiedono un browser controllabile da Claude Code (per esempio Claude in Chrome); tutto il resto funziona senza.
 
-## Stato (v0.7, 17/10/2026)
-**Provato** (sulla v0.5, il 16/10/2026; le regole e il profilo aggiunti dopo non sono ancora stati provati in una sessione):
+## Stato (v0.9, 17/10/2026)
+**Provato sulla v0.5** (16/10/2026):
 - la skill si carica sia come skill personale sia come skill di progetto, e legge la memoria;
 - i permessi;
 - il promemoria facoltativo, solo nei progetti con `DESIGN.md`;
 - `contrasto.mjs` e `misura-pagina.js` su una pagina con difetti noti;
 - la modalità `rivedi` in una sessione nuova.
 
+**Provato su v0.8 e v0.9** (17/10/2026, 7 sessioni non interattive; dettagli in `README.md`, "Prova di apprendimento"):
+- analisi, direzioni e verifica nel flusso di creazione;
+- memoria tra sessioni: una regola esplicita viene caricata e controllata nei progetti successivi;
+- generalizzazione (titolo enorme, poi icone troppo grosse → stessa classe e regola alla seconda volta), riuscita solo dopo la correzione della firma;
+- trasparenza ("cosa sai del mio gusto?").
+
+Come ripetere le prove qui:
+- installa una copia in `~/.claude/skills/` con git dentro;
+- lancia `claude -p` con `--permission-mode acceptEdits` e `--allowedTools` limitato a lettura, scrittura e `node`. Il sistema di permessi blocca le sessioni con tutti i permessi aperti;
+- usa cartelle di progetto con percorsi semplici, perché con percorsi strani una sessione ha scritto nel posto sbagliato;
+- a fine prova togli la copia da `~/.claude/skills/`.
+
 **Ancora da fare:**
-- **apprendimento tra sessioni.** Correzione → regola → sessione nuova che non ripete l'errore: sono le prove 1–6 di `README.md`, mai eseguite;
+- **prove rimaste**: terza fase della generalizzazione (un caso nuovo intercettato da sola), ambito, escalation, "dimentica…", una prova in sessione interattiva;
 - **metriche di tipografia e spaziatura** (scale, griglie), da verificare prima di scriverle;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 

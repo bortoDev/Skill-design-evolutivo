@@ -22,7 +22,7 @@ Leggi questo file prima di ogni consegna di design: schermata, componente, pagin
    - L4: verifica che i valori usati siano tra quelli ammessi in `DESIGN.md`;
    - L3 e L2: misura o rispondi alla domanda.
 2. Applica le lezioni di processo in testa al file.
-3. Osservazioni (L1) pertinenti in `memoria/catalogo-errori.md`: controlla i segnali indicati.
+3. Osservazioni (L1) in `memoria/catalogo-errori.md`: per ognuna, guarda se i suoi segnali compaiono nel lavoro attuale. Nel registro scrivi quali hai controllato e con che esito, anche quando non trovi nulla o quando un caso rientra nel contro-esempio: è la prova che le osservazioni vengono usate.
 4. Se trovi una violazione, correggila prima di consegnare e registrala nel registro come "intercettata in verifica": è la prova che l'apprendimento funziona.
 
 ## 3. Anti-ripetizione e anti-default
