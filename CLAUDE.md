@@ -61,7 +61,7 @@ Come ripetere le prove qui:
 
 **Ancora da fare:**
 - **prove rimaste**: terza fase della generalizzazione (un caso nuovo intercettato da sola), ambito, escalation, "dimentica…", una prova in sessione interattiva;
-- **metriche di tipografia e spaziatura** (scale, griglie), da verificare prima di scriverle;
+- **metriche**: fatte in `riferimenti/tipografia-spaziatura.md`; restano Apple HIG Typography e Layout (si leggono solo con JavaScript) e interlinea e tracking di Material 3. Da questo ambiente w3.org e m3.material.io sono bloccati dalla rete: il testo WCAG si legge dal repository ufficiale w3c/wcag;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 
 ## Base di partenza ed evoluzione

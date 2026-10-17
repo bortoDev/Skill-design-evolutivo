@@ -22,7 +22,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | 1. Struttura, nome, descrizione | fatto | `SKILL.md` |
 | 2. Checklist unificata Nielsen, Shneiderman, Norman | fatto | `riferimenti/fondamenta.md` §2 |
 | 3. Percezione e cognizione, automazione, architettura dell'informazione, tassonomia delle regole | fatto | `riferimenti/fondamenta.md` §1, §3–5 |
-| 4. Metriche vere, verificate | in parte: WCAG e piattaforme sì; scale tipografiche e griglie di spaziatura no | `processo/verifica.md`, `riferimenti/app-mobile.md` |
+| 4. Metriche vere, verificate | fatto per web e Android: WCAG (1.4.3, 1.4.4, 1.4.8, 1.4.10, 1.4.12, 2.5.8), griglia Android 8/4 dp, scala Material; scale e griglie del web sono scelte di progetto da motivare; Apple Typography e Layout non lette (servono JavaScript) | `processo/verifica.md`, `riferimenti/tipografia-spaziatura.md`, `riferimenti/app-mobile.md` |
 | 5. Errori tipici dell'IA e il tuo gusto | fatto per la memoria iniziale: 18 regole, 1 lezione di processo, profilo calibrato | `memoria/` |
 | 6. Flusso che usa le skill esistenti | fatto | `SKILL.md`, `processo/rivedi.md` |
 | 7. Prove e plugin | in parte: caricamento, permessi e strumenti provati; apprendimento tra sessioni e plugin ancora da fare | `README.md` |
@@ -36,5 +36,5 @@ Dal 17/10/2026 la copia di riferimento è il repository git `bortoDev/skill-desi
 
 ## Prossimi passi
 - Prove ancora da fare: la terza fase della generalizzazione (un caso nuovo intercettato da sola), l'ambito, l'escalation, "dimentica…" e una prova in sessione interattiva.
-- Metriche di tipografia e spaziatura, da verificare prima di scriverle.
+- Leggere Apple HIG Typography e Layout con un browser, e interlinea e tracking di Material 3 (m3.material.io non era raggiungibile).
 - Plugin, con la memoria fuori dalla cartella del plugin.

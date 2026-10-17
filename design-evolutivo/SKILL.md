@@ -10,7 +10,7 @@ Questa skill progetta e giudica interfacce e **impara** da come l'utente reagisc
 Cartelle, tutte dentro `${CLAUDE_SKILL_DIR}`: **mai** nella cartella del progetto, dove stanno solo `DESIGN.md` e, se servono, i rapporti di revisione in `revisioni/`.
 - `memoria/`: ciò che è stato imparato (profilo, regole, errori, semi, registro, diario);
 - `processo/`: le guide di ogni modalità, l'analisi iniziale (`analisi.md`), l'apprendimento (`evoluzione.md`), la verifica (`verifica.md`), un esempio completo (`esempio-ciclo.md`);
-- `riferimenti/`: regole di base (`fondamenta.md`), siti analizzati (`esempi/00-indice.md`), app iOS e Android (`app-mobile.md`);
+- `riferimenti/`: regole di base (`fondamenta.md`), tipografia e spaziatura (`tipografia-spaziatura.md`), siti analizzati (`esempi/00-indice.md`), app iOS e Android (`app-mobile.md`);
 - `strumenti/`: `contrasto.mjs` (rapporto di contrasto: `node strumenti/contrasto.mjs <testo> <sfondo>`) e `misura-pagina.js` (misure di una pagina aperta in un browser);
 - `modelli/DESIGN.md`: modello del file da tenere in ogni progetto.
 
@@ -54,7 +54,7 @@ PROPOSTA → RISPOSTA → FEEDBACK → CORREGGERE → IMPARARE → MIGLIORARE �
 
    L'analisi è proporzionata al lavoro: per una schermata sola bastano poche righe.
 2. **Tre direzioni** sul pezzo più importante del piano: A sicura · B vicina · C lontana, ognuna descritta dai 5 geni (struttura, tipografia, colore, ritmo, voce). Leggi `processo/direzioni.md` e `memoria/semi.md`. L'utente sceglie o mescola; registra la scelta. Per piccole modifiche a un progetto avviato non servono: segui `DESIGN.md`.
-3. **Fondamenta e token**: tipografia, colori, spaziature e raggi come variabili, scritti nel `DESIGN.md` del progetto (modello in `modelli/DESIGN.md`).
+3. **Fondamenta e token**: tipografia, colori, spaziature e raggi come variabili, scritti nel `DESIGN.md` del progetto (modello in `modelli/DESIGN.md`). Per scala tipografica e griglia di spaziatura leggi `riferimenti/tipografia-spaziatura.md`: cosa è un minimo verificato e cosa è una scelta di progetto da motivare.
 4. **Costruisci un pezzo alla volta**, nell'ordine del piano: parti dal mobile (375 px) e poi allarga, con contenuti veri o realistici e tutti gli stati. Dopo ogni pezzo fai una verifica rapida e chiedi un feedback, poi passa al successivo.
 5. **Verifica prima di consegnare** con `processo/verifica.md`: fondamenta, regole apprese, anti-ripetizione. Di' in una riga cosa hai controllato e corretto.
 6. **Consegna** chiedendo un feedback rapido: "Cosa tieni e cosa togli? Basta anche: struttura + · font − · …"

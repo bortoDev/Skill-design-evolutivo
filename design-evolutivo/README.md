@@ -163,6 +163,7 @@ design-evolutivo/
   modelli/DESIGN.md        modello del file da tenere in ogni progetto
   riferimenti/
     fondamenta.md          le regole del tuo corso unite: Nielsen, Shneiderman, Norman, Gestalt, Miller…
+    tipografia-spaziatura.md  minimi verificati (WCAG, Android, Material) e cosa decide il progetto
     app-mobile.md          linee guida iOS e Android
     esempi/                gli 8 siti analizzati (desktop e mobile) e il loro indice
   strumenti/

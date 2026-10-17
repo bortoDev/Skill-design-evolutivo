@@ -11,6 +11,7 @@ Leggi questo file prima di ogni consegna di design: schermata, componente, pagin
 | Riflusso | nessuno scorrimento orizzontale a 320 px CSS | WCAG 2.2, 1.4.10 (AA) |
 | Zoom | non bloccato (niente `maximum-scale=1` né `user-scalable=no`) | collegato a WCAG 1.4.4 |
 | Testo lungo | ≤ 80 caratteri per riga; interlinea ≥ 1,5 | WCAG 2.2, 1.4.8 (AAA: obiettivo, non obbligo) |
+| Spaziatura del testo | il layout regge interlinea 1,5, paragrafi 2, lettere 0,12 e parole 0,16 volte il corpo: niente altezze fisse né testo tagliato | WCAG 2.2, 1.4.12 (AA); `riferimenti/tipografia-spaziatura.md` |
 | Testo nelle app | iOS: corpo 17 pt predefinito, minimo 11 pt · Android: testo in `sp`, prova al 200 % | `riferimenti/app-mobile.md` |
 | Colore | l'informazione non passa solo dal colore | Apple HIG, Accessibility |
 | Carico di memoria | gruppi di voci entro 7±2; il resto dietro "Altro" | Miller (euristica) |
