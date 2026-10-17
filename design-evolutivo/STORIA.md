@@ -14,6 +14,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | v0.7 | 17/10/2026 | Profilo di gusto calibrato con te: tipografia, colore, forme e voce confermate (voce più sobria nei prodotti seri); struttura e fondo chiaro o scuro lasciati al brief; movimento espressivo e densità ariosa | le tue risposte sul profilo |
 | v0.8 | 17/10/2026 | `processo/analisi.md`: prima di disegnare, stakeholder, compiti con priorità (essenziale, importante, marginale), domande che cambiano il risultato e piano a pezzi approvato da te; costruzione un pezzo alla volta con feedback; R-018 (tutti gli stati); immagini lasciate al brief, icone il meno possibile | la tua richiesta di "ingegnerizzare il progetto e organizzarlo a pezzi" |
 | v0.9 | 17/10/2026 | Prima prova di apprendimento: 3 progetti finti e 7 sessioni nuove. La memoria tra sessioni funziona; il riconoscimento dello stesso errore in punti diversi falliva ed è stato corretto (la firma è la tendenza, non tendenza + causa), poi riprovato con successo. La verifica annota le osservazioni controllate; diario e versioni sono più espliciti | i risultati della prova (`README.md`, "Prova di apprendimento") |
+| v0.10 | 17/10/2026 | Il tuo primo giudizio sulle schermate delle prove entra nella memoria iniziale: R-019, lo stile da gioco solo se il brief lo chiede, altrimenti eleganza (palestra "bambinesca", biblioteca "da elegantizzare", pasticceria adatta). Registro "generale" con le tue parole | il tuo parere sulle tre schermate |
 
 ## Il piano iniziale in 7 passi
 | Passo | Stato | Dove |

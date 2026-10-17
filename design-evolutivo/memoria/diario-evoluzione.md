@@ -3,6 +3,7 @@ Ogni versione della memoria: cosa è cambiato, perché, con quali prove, e le me
 
 ## Modifiche dall'ultimo consolidamento
 (una riga per ogni regola creata, allargata, ristretta, ritirata o salita di livello: data · cosa · prova)
+- 2026-10-17 · R-019 creata (L3), primo feedback dell'utente sulle schermate delle prove: lo stile da gioco solo se il brief lo chiede, altrimenti eleganza · E-001, 2 occorrenze (registro generale, F-001 e F-002)
 
 ## v0 · 2026-10-16 · nascita
 - Profilo: 5 tendenze ipotetiche (confidenza bassa) dagli 8 siti di riferimento.
