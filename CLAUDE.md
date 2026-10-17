@@ -11,7 +11,7 @@ L'utente sta imparando il design frontend, ha seguito un corso di interazione uo
 
 | Cartella della skill | Contenuto |
 |---|---|
-| `processo/` | una guida per modalità (`rivedi`, `migliora`, `valuta`, `studia`); `evoluzione.md` (come impara); `direzioni.md` (come propone); `verifica.md` (controlli prima di consegnare); `esempio-ciclo.md` |
+| `processo/` | una guida per modalità (`rivedi`, `migliora`, `valuta`, `studia`); `analisi.md` (come inizia un progetto: stakeholder, priorità, piano a pezzi); `evoluzione.md` (come impara); `direzioni.md` (come propone); `verifica.md` (controlli prima di consegnare); `esempio-ciclo.md` |
 | `memoria/` | ciò che la skill ha imparato: profilo di gusto, regole, catalogo errori, semi, diario, registro dei progetti. Cambia con l'uso |
 | `riferimenti/` | `fondamenta.md` (le regole del corso dell'utente unite in 12 principi), `app-mobile.md` (iOS e Android), `esempi/` (8 siti analizzati e il loro indice) |
 | `strumenti/` | `contrasto.mjs` (Node, senza dipendenze); `misura-pagina.js` (da eseguire in un browser) |
@@ -24,12 +24,13 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 2. **Distingui misurato, letto, osservato e ipotesi**, sia nei file della skill sia nelle risposte, e dichiara cosa non hai fatto o provato.
 3. **Niente `hooks` nel frontmatter di `SKILL.md`.** Provato: Claude Code chiede un permesso prima di avviare la skill, e in modalità non interattiva la blocca. Il promemoria automatico resta facoltativo, nelle impostazioni dell'utente (`README.md`).
 4. **Una sola skill con più modalità**, non skill separate. Creazione e critica condividono una sola memoria, e nel contesto c'è una sola descrizione. Un critico indipendente si ottiene con un subagente (`processo/rivedi.md` §7).
-5. **La skill non si riscrive da sola.** Ogni cosa appresa si annuncia in una riga, e l'utente può correggerla o ritirarla. Le regole nuove sono proposte: decide l'utente. È il principio di intelligibilità e controllo sull'automazione del suo corso: non introdurre meccanismi che cambiano la memoria in silenzio.
-6. **"Cambia almeno 1 gene su 5"** rispetto ai riferimenti e all'ultimo progetto è una scelta dell'utente (prima era 3 su 5): non riportarla a 3. La direzione C ne cambia almeno 3 per costruzione, ma è un'altra regola.
-7. **Nella memoria iniziale, solo ciò che l'utente ha approvato vale come regola.** Approvati: la lezione di processo "niente di standard per abitudine" e le regole R-001–R-017 di `memoria/regole-apprese.md`. Per l'utente "standard" non vuol dire vietato: una soluzione comune va bene se è adeguata alla situazione, e il motivo va in `DESIGN.md`. Non trasformare le regole in divieti assoluti, tranne R-014 (dati inventati). I "default da evitare" non scelti restano non attivi: non promuoverli senza la sua conferma. Il profilo di gusto è stato calibrato con l'utente il 17/10/2026: non cambiare le tendenze confermate, né quelle lasciate al brief, senza di lui.
-8. **Richiama le altre skill, non copiarle** (`frontend-design`, `design-critique`, `accessibility-review`…). Questa skill contiene solo ciò che le altre non sanno: gusto, memoria ed evoluzione.
-9. **I file letti a ogni lavoro restano corti.** `SKILL.md` fa da indice e i dettagli stanno in file letti solo quando servono; i limiti sono 40 regole e 80 righe di profilo. La descrizione nel frontmatter mette all'inizio le parole chiave (interfacce, siti, app, schermate), perché con molte skill installate Claude Code la accorcia.
-10. **Ogni versione nuova va in `STORIA.md`**, nella tabella delle versioni e nello stato del piano. I commit dicono cosa cambia e perché.
+5. **Prima si ingegnerizza, poi si disegna.** Richiesta esplicita dell'utente: un progetto non si produce tutto insieme. Si parte dall'analisi di `processo/analisi.md`: stakeholder, compiti con priorità, domande giuste, piano a pezzi approvato. Poi si costruisce un pezzo alla volta, con un feedback dopo ognuno. Non accorciare questo passo, se non in proporzione alla dimensione del lavoro.
+6. **La skill non si riscrive da sola.** Ogni cosa appresa si annuncia in una riga, e l'utente può correggerla o ritirarla. Le regole nuove sono proposte: decide l'utente. È il principio di intelligibilità e controllo sull'automazione del suo corso: non introdurre meccanismi che cambiano la memoria in silenzio.
+7. **"Cambia almeno 1 gene su 5"** rispetto ai riferimenti e all'ultimo progetto è una scelta dell'utente (prima era 3 su 5): non riportarla a 3. La direzione C ne cambia almeno 3 per costruzione, ma è un'altra regola.
+8. **Nella memoria iniziale, solo ciò che l'utente ha approvato vale come regola.** Approvati: la lezione di processo "niente di standard per abitudine" e le regole R-001–R-018 di `memoria/regole-apprese.md`. Per l'utente "standard" non vuol dire vietato: una soluzione comune va bene se è adeguata alla situazione, e il motivo va in `DESIGN.md`. Non trasformare le regole in divieti assoluti, tranne R-014 (dati inventati). I "default da evitare" non scelti restano non attivi: non promuoverli senza la sua conferma. Il profilo di gusto è stato calibrato con l'utente il 17/10/2026: non cambiare le tendenze confermate, né quelle lasciate al brief, senza di lui.
+9. **Richiama le altre skill, non copiarle** (`frontend-design`, `design-critique`, `accessibility-review`…). Questa skill contiene solo ciò che le altre non sanno: gusto, memoria ed evoluzione.
+10. **I file letti a ogni lavoro restano corti.** `SKILL.md` fa da indice e i dettagli stanno in file letti solo quando servono; i limiti sono 40 regole e 80 righe di profilo. La descrizione nel frontmatter mette all'inizio le parole chiave (interfacce, siti, app, schermate), perché con molte skill installate Claude Code la accorcia.
+11. **Ogni versione nuova va in `STORIA.md`**, nella tabella delle versioni e nello stato del piano. I commit dicono cosa cambia e perché.
 
 ## Provare la skill
 - Non modificarla dentro `~/.claude/skills/`: è una cartella protetta e ogni scrittura chiede un permesso. Si modifica qui e si copia lì (o in `.claude/skills/` di un progetto di prova) per provarla.
@@ -48,7 +49,6 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 
 **Ancora da fare:**
 - **apprendimento tra sessioni.** Correzione → regola → sessione nuova che non ripete l'errore: sono le prove 1–6 di `README.md`, mai eseguite;
-- **gusto**: "da non fare" e profilo sono fatti (17/10/2026). Mancano le cose da fare sempre, se l'utente ne ha, e le voci di "Non ancora noto" nel profilo (immagini, stile delle icone);
 - **metriche di tipografia e spaziatura** (scale, griglie), da verificare prima di scriverle;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 

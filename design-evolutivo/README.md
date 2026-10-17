@@ -26,7 +26,7 @@ Questo file è per te. Claude legge `SKILL.md` e la cartella `processo/`. La sto
      }
    }
    ```
-3. Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. Dovresti vedere "Memoria: 17 regole attive, profilo v0".
+3. Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. Dovresti vedere "Memoria: 18 regole attive, profilo v0".
 4. Consigliato: metti la copia installata sotto git, così ogni passo dell'evoluzione resta nella storia e puoi tornare indietro. È una storia solo tua, sul tuo computer, separata dal repository di partenza:
    `cd ~/.claude/skills/design-evolutivo && git init && git add -A && git commit -m "v0"`
 
@@ -47,7 +47,8 @@ Il comando è scritto per bash (macOS e Linux; su Windows serve Git Bash, non l'
 
 ## Cosa vedrai
 - All'inizio: "Memoria: N regole attive, profilo vN".
-- Per un progetto nuovo: 3 direzioni, **A sicura**, **B vicina**, **C lontana**. Scegli, scarti o mescoli.
+- Per un progetto nuovo, prima l'analisi: chi è coinvolto, cosa serve, cosa è essenziale e cosa marginale, e le domande che cambiano il risultato. Ne esce un piano a pezzi che approvi tu.
+- Poi 3 direzioni sul pezzo più importante: **A sicura**, **B vicina**, **C lontana**. Scegli, scarti o mescoli. Il resto arriva un pezzo alla volta, e dopo ognuno ti chiede un parere.
 - Quando correggi: Claude corregge, cerca lo stesso problema altrove e ti dice "Ho corretto anche…", poi "Imparato: … · vale per …".
 - Prima di consegnare: "Verifica: … regole controllate · corretti … punti".
 - **Richieste di permesso per scrivere.** `~/.claude` è una cartella protetta di Claude Code: quando Claude vuole scrivere nella memoria ti chiede il permesso (in modalità automatica decide un classificatore) e una regola nelle impostazioni non basta a evitarlo. Puoi rispondere che lo consenti per tutta la sessione. È anche un vantaggio: vedi ogni cosa che impara prima che la salvi.
@@ -126,6 +127,7 @@ design-evolutivo/
   README.md                questo file
   STORIA.md                come è nata la skill, versione per versione
   processo/
+    analisi.md             come inizia un progetto: stakeholder, priorità, domande, piano a pezzi
     evoluzione.md          come impara: feedback, astrazione, soglie, livelli, consolidamento
     direzioni.md           come propone: 5 geni, 3 direzioni, operatori, distanza adattiva
     verifica.md            cosa controlla prima di consegnare (il critico in versione rapida)

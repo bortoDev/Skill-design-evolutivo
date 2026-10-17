@@ -10,6 +10,16 @@ File del progetto, da tenere nella sua cartella principale. La skill design-evol
 - Contenuti veri disponibili:
 - Vincoli (brand, tecnologia, tempi):
 
+## Analisi (`processo/analisi.md`)
+- Stakeholder: chi · cosa vuole · eventuali conflitti
+- Compiti e priorità: compito · essenziale | importante | marginale | fuori (con il motivo)
+
+## Piano a pezzi
+Approvato dall'utente il: AAAA-MM-GG
+| # | Pezzo | Priorità | Stato (da fare · in corso · consegnato · approvato) |
+|---|---|---|---|
+| 1 | … | essenziale | da fare |
+
 ## Direzione scelta
 - Nome, data, registro: `memoria/registro/<file>`
 - G1 Struttura:

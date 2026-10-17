@@ -14,12 +14,13 @@ Le tendenze orientano la direzione A; non vincolano B e C. Confidenza: **bassa**
 | G4 Densità (molti dati) | ariosa: poche informazioni per schermata e molto spazio; il resto si raggiunge con un passaggio in più | alta | scelta dell'utente (2026-10-17) |
 | G5 Voce | testi con personalità (lettera, prima persona, metafora nei titoli) ma etichette di navigazione neutre; nei prodotti seri (salute, finanza) la chiarezza viene prima e la personalità si riduce | alta | confermata dall'utente (2026-10-17); Dishoom, Duca Pipe, SBC, Montenellago. Sempre entro R-016 (testi adatti al pubblico) |
 | G5 Movimento | espressivo: il movimento fa parte dell'identità del progetto, usato con intenzione in pochi punti scelti; sempre rispettando "riduci movimento" | alta | scelta dell'utente (2026-10-17) |
+| G5 Immagini | nessuna tendenza: foto, illustrazioni o nessuna immagine, decide il brief | — | scelta dell'utente (2026-10-17) |
+| G5 Icone | il meno possibile: solo dove aiutano davvero; altrimenti basta il testo | alta | scelta dell'utente (2026-10-17) |
 
 Origine: analisi degli 8 siti (`riferimenti/esempi/00-indice.md`, 15 e 16/10/2026), confermata o corretta dall'utente il 17/10/2026.
 
 ## Non ancora noto
-- Immagini: foto, illustrazioni o nessuna delle due; stile delle icone.
-Quando un progetto tocca uno di questi aspetti, chiedi all'utente invece di scegliere per abitudine.
+(niente per ora) Quando un progetto tocca un aspetto del gusto che qui non c'è, chiedi all'utente invece di scegliere per abitudine.
 
 ## Esplorazione
 - Distanza attuale della direzione C: 3 geni.

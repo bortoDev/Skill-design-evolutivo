@@ -12,6 +12,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | v0.5 | 16/10/2026 | Modalità rivedi, migliora, valuta e studia; `riferimenti/fondamenta.md` con le regole del tuo corso; `strumenti/` con lo script di misura usato sugli 8 siti (migliorato) e il calcolo del contrasto; WCAG 1.4.6 e scala di gravità di Nielsen verificate | la tua richiesta di revisione e valutazione, e le regole del corso che mi avevi scritto all'inizio |
 | v0.6 | 17/10/2026 | Repository git come base di partenza (la skill evolve nella copia installata); `CLAUDE.md` per lo sviluppo; i tuoi "da non fare": lezione di processo "niente di standard per abitudine" e regole R-004–R-017; brief con l'analisi del pubblico, che decide quanto possono essere complessi i testi | la tua decisione sulla base di partenza e le tue risposte sui "da non fare" |
 | v0.7 | 17/10/2026 | Profilo di gusto calibrato con te: tipografia, colore, forme e voce confermate (voce più sobria nei prodotti seri); struttura e fondo chiaro o scuro lasciati al brief; movimento espressivo e densità ariosa | le tue risposte sul profilo |
+| v0.8 | 17/10/2026 | `processo/analisi.md`: prima di disegnare, stakeholder, compiti con priorità (essenziale, importante, marginale), domande che cambiano il risultato e piano a pezzi approvato da te; costruzione un pezzo alla volta con feedback; R-018 (tutti gli stati); immagini lasciate al brief, icone il meno possibile | la tua richiesta di "ingegnerizzare il progetto e organizzarlo a pezzi" |
 
 ## Il piano iniziale in 7 passi
 | Passo | Stato | Dove |
@@ -20,7 +21,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | 2. Checklist unificata Nielsen, Shneiderman, Norman | fatto | `riferimenti/fondamenta.md` §2 |
 | 3. Percezione e cognizione, automazione, architettura dell'informazione, tassonomia delle regole | fatto | `riferimenti/fondamenta.md` §1, §3–5 |
 | 4. Metriche vere, verificate | in parte: WCAG e piattaforme sì; scale tipografiche e griglie di spaziatura no | `processo/verifica.md`, `riferimenti/app-mobile.md` |
-| 5. Errori tipici dell'IA e il tuo gusto | fatto per la memoria iniziale: "da non fare" scelti (17 regole e 1 lezione di processo), profilo calibrato; restano le cose da fare sempre e immagini e icone | `memoria/` |
+| 5. Errori tipici dell'IA e il tuo gusto | fatto per la memoria iniziale: 18 regole, 1 lezione di processo, profilo calibrato | `memoria/` |
 | 6. Flusso che usa le skill esistenti | fatto | `SKILL.md`, `processo/rivedi.md` |
 | 7. Prove e plugin | in parte: caricamento, permessi e strumenti provati; apprendimento tra sessioni e plugin ancora da fare | `README.md` |
 
@@ -33,6 +34,5 @@ Dal 17/10/2026 la copia di riferimento è il repository git `bortoDev/skill-desi
 
 ## Prossimi passi
 - Prova di apprendimento tra sessioni (la prova 2 del README).
-- Gusto: le cose da fare sempre, se ne hai; immagini (foto o illustrazioni) e stile delle icone.
 - Metriche di tipografia e spaziatura, da verificare prima di scriverle.
 - Plugin, con la memoria fuori dalla cartella del plugin.
