@@ -26,7 +26,7 @@ Questo file è per te. Claude legge `SKILL.md` e la cartella `processo/`. La sto
      }
    }
    ```
-3. Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. Dovresti vedere "Memoria: 3 regole attive, profilo v0".
+3. Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. Dovresti vedere "Memoria: 17 regole attive, profilo v0".
 4. Consigliato: metti la copia installata sotto git, così ogni passo dell'evoluzione resta nella storia e puoi tornare indietro. È una storia solo tua, sul tuo computer, separata dal repository di partenza:
    `cd ~/.claude/skills/design-evolutivo && git init && git add -A && git commit -m "v0"`
 

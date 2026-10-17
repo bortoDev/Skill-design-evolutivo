@@ -2,7 +2,8 @@
 File del progetto, da tenere nella sua cartella principale. La skill design-evolutivo lo legge a ogni sessione: contiene le decisioni e i vincoli di questo progetto, così il lavoro resta coerente tra una sessione e l'altra.
 
 ## Brief
-- Chi lo usa:
+- Chi lo usa (età, familiarità con il digitale, conoscenza del tema):
+- Quanto possono essere complessi i testi, di conseguenza:
 - Per fare cosa:
 - Dove (piattaforme, schermi):
 - Tono:
@@ -29,4 +30,5 @@ Solo questi valori sono ammessi; la verifica controlla che il codice usi questi 
 Regole della memoria che in questo progetto non valgono, con il motivo (ambito: progetto).
 
 ## Decisioni
+Ogni scelta comune usata di proposito (un font molto diffuso, un layout classico…) ha qui il suo motivo legato al brief: è la lezione di processo "niente di standard per abitudine".
 - AAAA-MM-GG · decisione · motivo

@@ -46,7 +46,7 @@ PROPOSTA → RISPOSTA → FEEDBACK → CORREGGERE → IMPARARE → MIGLIORARE �
 0. **Carica la memoria** (in ogni modalità): leggi `${CLAUDE_SKILL_DIR}/memoria/profilo-gusto.md` e `${CLAUDE_SKILL_DIR}/memoria/regole-apprese.md`; se il progetto ha un `DESIGN.md`, leggilo. Di' in una riga cosa hai caricato (es. "Memoria: 7 regole attive, profilo v3").
    - Se nel registro ci sono progetti con feedback non ancora consolidati (il diario dice la data dell'ultimo consolidamento), proponi di consolidare prima di iniziare.
    - Se vedi che l'utente ha cambiato a mano valori di design rispetto a quanto avevi fatto (colori, dimensioni, spaziature), chiedi se sono preferenze da ricordare.
-1. **Brief**: chi lo usa · per fare cosa · dove (telefono, desktop, iOS, Android) · che tono · quali contenuti veri esistono · vincoli. Chiedi solo ciò che cambia il risultato.
+1. **Brief e pubblico**: chi lo usa (età, familiarità con il digitale, conoscenza del tema: decide quanto possono essere complessi i testi) · per fare cosa · dove (telefono, desktop, iOS, Android) · che tono · quali contenuti veri esistono · vincoli. Chiedi solo ciò che cambia il risultato.
 2. **Tre direzioni**: A sicura · B vicina · C lontana, ognuna descritta dai 5 geni (struttura, tipografia, colore, ritmo, voce). Leggi `processo/direzioni.md` e `memoria/semi.md`. L'utente sceglie o mescola; registra la scelta. Per piccole modifiche a un progetto avviato non servono: segui `DESIGN.md`.
 3. **Fondamenta e token**: tipografia, colori, spaziature e raggi come variabili, scritti nel `DESIGN.md` del progetto (modello in `modelli/DESIGN.md`).
 4. **Costruisci partendo dal mobile** (375 px), con contenuti veri o realistici; poi allarga.

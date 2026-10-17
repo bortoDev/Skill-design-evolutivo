@@ -1,22 +1,40 @@
 # Regole apprese
-Versione v0 · 2026-10-16 · si legge all'inizio di ogni lavoro di design · massimo 40 regole: oltre, consolida.
+Versione v0 · 2026-10-17 · si legge all'inizio di ogni lavoro di design · massimo 40 regole: oltre, consolida.
 Formato: `R-NNN · livello · ambito · regola · Controllo: … · Da: … · Perché: …` (livelli e ambiti in `processo/evoluzione.md` §6–7)
 
 ## Lezioni di processo
-(nessuna: nascono nel consolidamento quando 3 o più classi d'errore hanno la stessa causa)
+- **Niente di standard per abitudine.** Una scelta che è la soluzione più comune per quel tipo di progetto (layout, composizione, font, colore, forme, testi, movimento) si usa solo se è adeguata a quella situazione specifica: il motivo, legato al brief, si scrive in `DESIGN.md` (Decisioni). Altrimenti si cambia. Ogni progetto deve avere un'identità propria, non intercambiabile con quella di altri progetti. Le regole qui sotto sono i casi già noti. · Controllo: descrivi in una frase cosa rende questo progetto riconoscibile; se la frase andrebbe bene anche per un altro progetto, la direzione è troppo generica. · Da: utente, 2026-10-17 · Perché: "puo anche fare certe cose però solo se sono adeguate in quella specifica situazione, quello che non deve fare è fare qualcosa di standard sempre"
 
 ## Regole attive
+Le regole da R-003 a R-015 vietano scelte fatte per abitudine: se in un progetto una di queste è davvero la scelta giusta, si usa scrivendo il motivo in `DESIGN.md` (Eccezioni locali). R-014 non ha eccezioni.
+
 R-001 · L5 · sempre · Niente emoji usate come icone di interfaccia: usa un set di icone coerente (SVG) o il testo. · Controllo: cerca nei file di markup e dei componenti il pattern `[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]` e guarda ogni risultato; su una pagina aperta nel browser, il campo `emoji` di `strumenti/misura-pagina.js`. · Da: proposta di Claude approvata dall'utente (2026-10-16) · Perché: segno tipico di interfaccia generata.
 R-002 · L3 · sempre · Niente gradienti viola o blu-viola come sfondo o decorazione. · Controllo: elenca i gradienti usati e i loro colori; una tinta tra ~260° e ~300° è una violazione (su una pagina aperta: campo `gradienti` di `misura-pagina.js`). · Da: idem · Perché: idem.
 R-003 · L3 · sempre · Niente griglie di card identiche con ombra (3 o più card uguali con `box-shadow` in fila) come soluzione predefinita. · Controllo: conta i gruppi di card uguali con ombra; se ce n'è uno, giustificalo con il contenuto o cambia struttura (su una pagina aperta: campo `gruppiCardConOmbra`). · Da: idem · Perché: idem.
+R-004 · L3 · sempre · Niente hero centrato con titolo, sottotitolo e due pulsanti come prima idea. · Controllo: la prima schermata ha titolo, sottotitolo e due pulsanti centrati? Se sì, c'è il motivo in `DESIGN.md`? · Da: proposta di Claude scelta dall'utente (2026-10-17) · Perché: composizione standard, uguale in troppi progetti.
+R-005 · L3 · sempre · Niente impaginazione tutta centrata e uniforme: i testi di più righe non si centrano; spaziature e impianto delle sezioni cambiano secondo il contenuto. · Controllo: cerca testi di più righe con `text-align: center` o `text-center`; elenca padding verticale e impianto di ogni sezione: se sono tutti uguali, varia il ritmo. · Da: idem · Perché: idem.
+R-006 · L5 · sempre · I font si scelgono per il progetto, mai per abitudine: ogni famiglia ha in `DESIGN.md` un motivo legato al brief. Per Inter, Roboto, Poppins, Montserrat e Open Sans il motivo spiega anche perché non serve un'alternativa meno comune. · Controllo: cerca `font-family`, `@font-face` e gli import di font nei file; confronta ogni famiglia con `DESIGN.md`. · Contro-esempio: il font di sistema in un'app nativa segue la piattaforma. · Da: utente, 2026-10-17 · Perché: "i font li puo scegliere ma NON per abitudine, deve essere una sclta ponderata sul progetto"
+R-007 · L5 · sempre · Niente titoli con il testo riempito da un gradiente. · Controllo: cerca `background-clip: text`, `-webkit-background-clip: text` e `bg-clip-text` e guarda ogni risultato. · Da: proposta di Claude scelta dall'utente (2026-10-17) · Perché: segno tipico di interfaccia generata.
+R-008 · L3 · sempre · Niente colori presi senza motivo dalla palette predefinita del framework o della libreria di componenti (per esempio le classi `indigo-`, `violet-` o `blue-` di Tailwind usate come accento). · Controllo: per ogni colore d'accento scrivi da dove viene (brand, brief, riferimento, seme); cerca nei file le classi di colore predefinite. · Contro-esempio: i colori di sistema della piattaforma in un'app nativa. · Da: idem · Perché: idem.
+R-009 · L3 · sempre · Niente bagliori neon e vetro sfocato su fondo scuro usati come effetto. · Controllo: cerca `backdrop-filter` e ombre o `text-shadow` di colori saturi; per ognuno, a cosa serve a chi usa l'interfaccia? · Contro-esempio: i materiali di sistema di iOS in un'app nativa, come la tab bar in Liquid Glass (`riferimenti/app-mobile.md`). · Da: idem · Perché: idem.
+R-010 · L3 · sempre · Niente raggi grandi (16–24 px) e ombre morbide su quasi ogni elemento: raggi e ombre si scelgono per ruolo, con pochi valori fissati in `DESIGN.md`. · Controllo: elenca raggi e ombre in uso e su quali elementi; se la maggior parte di card, pulsanti e campi ha raggio 16–24 px e ombra, è una violazione. · Da: idem · Perché: idem.
+R-011 · L3 · sempre · Niente icone dentro cerchi o quadrati di colore tenue, ripetute come decorazione. · Controllo: ci sono icone racchiuse in forme colorate ripetute in serie? Se la forma non ha una funzione (stato, categoria), toglila. · Da: idem · Perché: idem.
+R-012 · L5 · sempre · Niente striscia colorata su un lato di card e riquadri come decorazione. · Controllo: cerca `border-left`, `border-inline-start` e `border-l-` nei file e guarda ogni risultato su card e riquadri. · Contro-esempio: una citazione o un messaggio di stato, dove la striscia ha un significato. · Da: idem · Perché: idem.
+R-013 · L3 · sempre · Niente testi generici ("Sblocca il tuo potenziale", "Soluzioni innovative"): ogni testo parla di questo progetto con i suoi contenuti veri. · Controllo: ogni titolo e invito all'azione andrebbe bene anche per un altro sito o un altro settore? Se sì, riscrivilo. · Da: idem · Perché: idem.
+R-014 · L3 · sempre · Mai numeri, recensioni, testimonianze o loghi di clienti inventati e presentati come veri. Se i dati veri mancano, usa segnaposto dichiarati (es. "[recensione vera da inserire]") e dillo alla consegna. · Controllo: elenca numeri, citazioni e nomi di clienti: ognuno viene dal brief o dall'utente? · Da: idem · Perché: ingannano chi usa il sito; un segnaposto dimenticato finisce online (caso BBANG in `riferimenti/esempi/`).
+R-015 · L3 · sempre · Niente etichetta a pillola sopra il titolo principale ("Novità", "Nuovo ✨"). · Controllo: c'è una piccola etichetta sopra il titolo principale? Se sì, c'è il motivo in `DESIGN.md`? · Da: idem · Perché: idem.
+R-016 · L3 · sempre · I testi si commisurano a chi usa il prodotto. Prima di scriverli, il brief descrive il pubblico (età, familiarità con il digitale, conoscenza del tema). Pubblico ampio o misto, dai bambini agli anziani: frasi brevi, parole comuni, niente gergo, uno stile che non stanchi nessuno. Testi tecnici o densi solo se il brief dice che il pubblico è esperto. · Controllo: rileggi ogni testo pensando alla persona meno esperta del pubblico: lo capisce alla prima lettura, senza fatica? · Da: utente, 2026-10-17 · Perché: "se è destinato a una gamma molto ampia da vecchia a bambini allora bosogna tenere uno stile che vada bene a tutti e non stanchi nessuno"
+R-017 · L3 · sempre · Niente testi che dicono l'ovvio: sottotitoli che ripetono ciò che si capisce già dal titolo, dall'immagine o dal contesto, e spiegazioni di cose che l'utente sa già. · Controllo: per ogni sottotitolo o testo di supporto, se lo togli l'utente perde un'informazione? Se no, toglilo (principio U8, essenzialità). · Da: utente, 2026-10-17 · Perché: "Non deve mettere scritte sottointese, come sottotilodi che spiegano di nuovo quello che capisci gia aprendo il sito o l'app"
 
-## Default da evitare (candidati: non attivi finché l'utente non li conferma)
-- Hero centrato con titolo, sottotitolo e due pulsanti come prima idea.
+## Default da evitare (non attivi)
+Proposti all'utente il 17/10/2026 e non scelti come regola: non hanno un controllo proprio, ma restano soggetti alla lezione di processo, quindi si usano solo se il brief li giustifica.
 - Tre colonne "icona + titolo + testo" per presentare le funzioni.
+- La sequenza da template: loghi dei clienti, funzioni, testimonianze, FAQ, invito finale, footer a 4 colonne.
+- Macchie sfocate, sfumature a rete o griglie di puntini usate come riempitivo.
+- Animazione di comparsa su ogni sezione durante lo scorrimento.
+
+Ancora da chiedere all'utente:
 - Una sola famiglia neutra per tutto, senza un gesto tipografico.
-- Raggi grandi (16–24 px) su ogni elemento e ombre morbide ovunque.
-- Vetro sfocato e neon su fondo scuro usati come effetto.
-- Testi generici ("Sblocca il tuo potenziale", "Soluzioni innovative") e testimonianze segnaposto.
 
 ## Ritirate
 (nessuna)
