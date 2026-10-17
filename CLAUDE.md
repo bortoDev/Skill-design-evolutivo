@@ -39,7 +39,7 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 - Controllo rapido degli strumenti: `node design-evolutivo/strumenti/contrasto.mjs "#87CBC3" "#fff"` deve dare 1,85:1 (il menta di Montenellago).
 - La modalità `studia` e le misure su pagine vere richiedono un browser controllabile da Claude Code (per esempio Claude in Chrome); tutto il resto funziona senza.
 
-## Stato (v0.9, 17/10/2026)
+## Stato (v0.11, 17/10/2026)
 **Provato sulla v0.5** (16/10/2026):
 - la skill si carica sia come skill personale sia come skill di progetto, e legge la memoria;
 - i permessi;
@@ -53,6 +53,8 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 - generalizzazione (titolo enorme, poi icone troppo grosse → stessa classe e regola alla seconda volta), riuscita solo dopo la correzione della firma;
 - trasparenza ("cosa sai del mio gusto?").
 
+**Provato sulla v0.10** (17/10/2026, 4 sessioni): R-019 applicata a un progetto nuovo; ambito "solo qui" (vincolo nel `DESIGN.md` del progetto, non nella memoria generale); "dimentica…" (regola tra le ritirate, con il motivo).
+
 Come ripetere le prove qui:
 - installa una copia in `~/.claude/skills/` con git dentro;
 - lancia `claude -p` con `--permission-mode acceptEdits` e `--allowedTools` limitato a lettura, scrittura e `node`. Il sistema di permessi blocca le sessioni con tutti i permessi aperti;
@@ -60,7 +62,7 @@ Come ripetere le prove qui:
 - a fine prova togli la copia da `~/.claude/skills/`.
 
 **Ancora da fare:**
-- **prove rimaste**: terza fase della generalizzazione (un caso nuovo intercettato da sola), ambito, escalation, "dimentica…", una prova in sessione interattiva;
+- **prove rimaste**: escalation (serve un errore che si ripete davvero) e una prova in sessione interattiva, sul computer dell'utente;
 - **metriche**: fatte in `riferimenti/tipografia-spaziatura.md`; restano Apple HIG Typography e Layout (si leggono solo con JavaScript) e interlinea e tracking di Material 3. Da questo ambiente w3.org e m3.material.io sono bloccati dalla rete: il testo WCAG si legge dal repository ufficiale w3c/wcag;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 

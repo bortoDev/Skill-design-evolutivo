@@ -15,6 +15,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 | v0.8 | 17/10/2026 | `processo/analisi.md`: prima di disegnare, stakeholder, compiti con priorità (essenziale, importante, marginale), domande che cambiano il risultato e piano a pezzi approvato da te; costruzione un pezzo alla volta con feedback; R-018 (tutti gli stati); immagini lasciate al brief, icone il meno possibile | la tua richiesta di "ingegnerizzare il progetto e organizzarlo a pezzi" |
 | v0.9 | 17/10/2026 | Prima prova di apprendimento: 3 progetti finti e 7 sessioni nuove. La memoria tra sessioni funziona; il riconoscimento dello stesso errore in punti diversi falliva ed è stato corretto (la firma è la tendenza, non tendenza + causa), poi riprovato con successo. La verifica annota le osservazioni controllate; diario e versioni sono più espliciti | i risultati della prova (`README.md`, "Prova di apprendimento") |
 | v0.10 | 17/10/2026 | Il tuo primo giudizio sulle schermate delle prove entra nella memoria iniziale: R-019, lo stile da gioco solo se il brief lo chiede, altrimenti eleganza (palestra "bambinesca", biblioteca "da elegantizzare", pasticceria adatta). Registro "generale" con le tue parole | il tuo parere sulle tre schermate |
+| v0.11 | 17/10/2026 | `riferimenti/tipografia-spaziatura.md` con le metriche verificate (WCAG 1.4.12, griglia Android 8 e 4 dp, scala Material). Seconda prova in 4 sessioni: R-019 applicata alla palestra rifatta, ambito "solo qui" e "dimentica…" riusciti | il tuo "continuiamo con quello che manca" |
 
 ## Il piano iniziale in 7 passi
 | Passo | Stato | Dove |
@@ -35,6 +36,6 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 Dal 17/10/2026 la copia di riferimento è il repository git `bortoDev/skill-design-evolutivo`, cartella `design-evolutivo/`. Gli zip `design-evolutivo.zip` e `design-skill-esempi.zip` non servono più. Il repository è la **base di partenza**: per usarla, copia la cartella in `~/.claude/skills/`. Da lì la skill evolve da sola. Ciò che impara resta nella `memoria/` della copia installata e nel suo diario, e non torna nel repository, che cambia solo quando si migliora la base.
 
 ## Prossimi passi
-- Prove ancora da fare: la terza fase della generalizzazione (un caso nuovo intercettato da sola), l'ambito, l'escalation, "dimentica…" e una prova in sessione interattiva.
+- Prove ancora da fare: l'escalation (un errore che si ripete nonostante la regola) e una prova in sessione interattiva, sul tuo computer.
 - Leggere Apple HIG Typography e Layout con un browser, e interlinea e tracking di Material 3 (m3.material.io non era raggiungibile).
 - Plugin, con la memoria fuori dalla cartella del plugin.

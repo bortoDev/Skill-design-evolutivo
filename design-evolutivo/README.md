@@ -117,14 +117,23 @@ Tre progetti finti (pasticceria, app di una palestra, app di una biblioteca), 7 
 | 1. Memoria tra sessioni | **riuscita**. "Mai testo tutto maiuscolo nei pulsanti" è diventata subito R-019; nei due progetti successivi è stata caricata e controllata con una ricerca nei file. |
 | 2. Generalizzazione | **fallita con la v0.8, riuscita dopo la correzione.** Dopo "il titolo è enorme" e poi "le icone sono troppo grosse", la v0.8 ha aperto una classe nuova invece di riconoscere lo stesso errore, perché ha attribuito ai due errori cause diverse. Corretto il metodo: la firma è la tendenza, la causa non decide più. Nella riprova le due correzioni sono diventate la stessa classe e la regola R-020 è nata alla seconda occorrenza. Non provata la terza fase: un caso nuovo intercettato da sola. |
 | 5. Novità | **riuscita** per quanto si vede nei registri: ogni progetto ha cambiato direzione rispetto al precedente, e una direzione è stata scartata perché violava una regola. |
-| 6. Trasparenza | **riuscita in parte**: "cosa sai del mio gusto?" dà un riassunto corretto e completo, con le prove. "Dimentica…" non è stato provato. |
-| 3. Ambito, 4. Escalation | non provate |
+| 6. Trasparenza | **riuscita**: "cosa sai del mio gusto?" dà un riassunto corretto e completo, con le prove. Nella seconda prova "dimentica…" ha spostato la regola tra le ritirate, con il motivo e una riga nel diario. |
+| 3. Ambito | **riuscita** nella seconda prova: "qui niente verde, è il colore del concorrente" è rimasto un vincolo del solo progetto (`DESIGN.md`, Eccezioni locali); nel progetto successivo il verde non era vietato. |
+| 4. Escalation | non provata: serve un errore che si ripete davvero nonostante una regola attiva. |
 
 Altre cose viste:
 - In queste sessioni, con Write ed Edit consentiti esplicitamente e la modalità `acceptEdits`, la scrittura nella memoria in `~/.claude/skills/` non è stata bloccata. In una sessione interattiva non l'ho riprovato.
 - La verifica non annotava quali osservazioni aveva controllato. Ora `processo/verifica.md` lo chiede.
 - Una volta non è stata scritta la riga nel diario dopo una regola nuova. Una volta il numero di versione è cambiato fuori dal consolidamento. Ora `SKILL.md` e `processo/evoluzione.md` lo dicono in modo esplicito.
 - Costo: da 0,30 a 0,87 $ e da 40 secondi a 4 minuti per sessione; circa 4,7 $ in tutto.
+
+### Seconda prova (17/10/2026, base v0.10)
+Dopo il tuo giudizio ("troppo bambinesche"), 4 sessioni nuove su due progetti:
+- **Palestra rifatta da zero con R-019:** pesi leggeri, niente blocchi né contorni pesanti. La verifica ha controllato E-001 e lo ha scritto nel registro, e ha segnalato da sola il punto al limite: i pulsanti pieni.
+- **Ambito:** il vincolo di colore è rimasto nel suo progetto. La skill ne ha ricavato un'osservazione, E-002: "se il brief non dice quali colori evitare, chiedilo". Nel progetto successivo l'ha applicata, scrivendo in `DESIGN.md` che i colori andavano confermati.
+- **Ottica con clienti over 60:** ha adattato R-019 al pubblico, senza pesi troppo sottili per chi ha la vista stanca.
+- **"Dimentica…":** riuscito.
+- **Costo:** circa 3,8 $ per le 4 sessioni.
 
 ## Limiti
 - Se hai molte skill installate, Claude Code accorcia le descrizioni nell'elenco: per questo quella di questa skill mette all'inizio le parole chiave (interfacce, siti, app, schermate).
