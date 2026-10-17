@@ -27,7 +27,7 @@ Come è nata, versione per versione, e da quale parte del lavoro viene ogni file
 - I dati grezzi delle misure e gli screenshot dei siti: nella skill ci sono i risultati, nelle schede.
 
 ## Dove vive
-La copia di riferimento è l'ultimo zip che ti ho mandato (`design-evolutivo.zip`): sostituisce `design-skill-esempi.zip`, che ne è un sottoinsieme. Lo spazio di lavoro in cui l'ho costruita è temporaneo. Installa la cartella in `~/.claude/skills/` e mettila sotto git: da lì in poi la storia la scrive git, insieme al diario della memoria.
+Dal 17/10/2026 la copia di riferimento è il repository git `bortoDev/skill-design-evolutivo`, cartella `design-evolutivo/`. Gli zip `design-evolutivo.zip` e `design-skill-esempi.zip` non servono più. Per usarla, installa la cartella in `~/.claude/skills/`. Da qui in poi la storia la scrive git, insieme al diario della memoria. Resta da decidere dove far vivere la memoria imparata, se nella copia installata o nel repository: vedi `CLAUDE.md` nella radice del repository.
 
 ## Prossimi passi
 - Prova di apprendimento tra sessioni (la prova 2 del README).
