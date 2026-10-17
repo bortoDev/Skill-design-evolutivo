@@ -52,11 +52,11 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 - **metriche di tipografia e spaziatura** (scale, griglie), da verificare prima di scriverle;
 - **plugin**, con la memoria fuori dalla cartella del plugin.
 
-## Questione aperta: dove vive la memoria
-La skill scrive la memoria nella propria cartella (`${CLAUDE_SKILL_DIR}/memoria/`), cioè nella copia installata e non in questo repository. Copiando la skill per provarla o aggiornarla, le due memorie si separano, e una copia nuova cancellerebbe ciò che è stato imparato.
+## Base di partenza ed evoluzione
+Decisione dell'utente (17/10/2026): questo repository è solo la **base di partenza**. La skill si installa copiandola in `~/.claude/skills/` ed evolve da sola nella copia installata, dove scrive la sua memoria (`${CLAUDE_SKILL_DIR}/memoria/`). Ciò che impara non torna qui.
 
-Prima dell'uso reale va decisa con l'utente una soluzione. Per esempio:
-- installare la skill con un collegamento simbolico a questa cartella;
-- tenere `memoria/` fuori dal repository e versionarla a parte.
-
-Nessuna delle due è stata provata. La scelta tocca anche il passo 4 dell'installazione in `README.md` e il commit a fine consolidamento in `processo/evoluzione.md` §8.
+Di conseguenza:
+- `memoria/` in questo repository è la **memoria iniziale**: ciò che vale prima di qualunque uso, cioè le regole e le preferenze date direttamente dall'utente, i semi, il profilo ipotetico e i modelli dei file.
+- Qui si lavora sulla base: guide di processo, riferimenti, strumenti, memoria iniziale. Non chiedere all'utente di riportare qui la memoria evoluta.
+- Chi aggiorna una copia già installata copia tutto tranne `memoria/` (`README.md`, sezione "Aggiornare la base senza perdere ciò che ha imparato").
+- Se si cambia il formato di un file di `memoria/`, le copie installate hanno ancora quello vecchio: la skill deve saper leggere entrambi, oppure serve una nota di migrazione in `README.md`.

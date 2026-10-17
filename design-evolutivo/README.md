@@ -17,7 +17,7 @@ Questo file è per te. Claude legge `SKILL.md` e la cartella `processo/`. La sto
 **Perché una skill sola con più modalità, e non tante skill.** Tutte le modalità leggono e alimentano la stessa memoria: quando respingi un'osservazione della revisione, anche la creazione impara. Ogni skill installata aggiunge la sua descrizione al contesto a ogni turno, e con molte skill Claude Code accorcia le descrizioni (l'ho visto succedere qui, con 74 skill). Puoi comunque chiamare una modalità precisa: `/design-evolutivo rivedi`. Separare avrebbe senso solo per un critico indipendente in un subagente, e la modalità rivedi lo prevede già come opzione.
 
 ## Installazione
-1. Copia la cartella `design-evolutivo` in `~/.claude/skills/`. Il file principale deve risultare in `~/.claude/skills/design-evolutivo/SKILL.md` (su Windows la cartella `.claude` è nella tua cartella utente). Così vale per tutti i tuoi progetti.
+1. Copia la cartella `design-evolutivo` del repository in `~/.claude/skills/`. Il file principale deve risultare in `~/.claude/skills/design-evolutivo/SKILL.md` (su Windows la cartella `.claude` è nella tua cartella utente). Così vale per tutti i tuoi progetti. Va copiata, non collegata: il repository è la base di partenza, mentre la copia installata è quella che impara ed evolve con l'uso. Ciò che impara resta lì e non torna nel repository.
 2. Permetti a Claude di **leggere** la memoria senza chiedertelo ogni volta. Senza questo passo, a ogni sessione ti chiede il permesso di leggere i file della skill (l'ho verificato). Aggiungi a `~/.claude/settings.json` (se il file ha già contenuto, unisci le chiavi):
    ```json
    {
@@ -27,8 +27,11 @@ Questo file è per te. Claude legge `SKILL.md` e la cartella `processo/`. La sto
    }
    ```
 3. Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. Dovresti vedere "Memoria: 3 regole attive, profilo v0".
-4. Consigliato: metti la cartella sotto git, così ogni passo dell'evoluzione resta nella storia e puoi tornare indietro:
+4. Consigliato: metti la copia installata sotto git, così ogni passo dell'evoluzione resta nella storia e puoi tornare indietro. È una storia solo tua, sul tuo computer, separata dal repository di partenza:
    `cd ~/.claude/skills/design-evolutivo && git init && git add -A && git commit -m "v0"`
+
+### Aggiornare la base senza perdere ciò che ha imparato
+Se un giorno il repository di partenza migliora (per esempio nuove guide in `processo/`), non ricopiare tutta la cartella: la cartella `memoria/` della copia installata contiene ciò che la skill ha imparato da te, e verrebbe sostituita dalla memoria iniziale. Copia tutto tranne `memoria/`.
 
 ### Facoltativo: promemoria automatico
 Un hook che, nei progetti con un `DESIGN.md`, ricorda a Claude a ogni tuo messaggio di registrare i giudizi di design. Rende l'apprendimento meno dipendente dall'attenzione di Claude. Va nello stesso `~/.claude/settings.json`, accanto a `permissions`:
