@@ -4,7 +4,13 @@
 
 Un plugin per [Claude Code](https://code.claude.com) che progetta, rivede, corregge e valuta interfacce (siti, web app, app iOS e Android) e **impara il tuo gusto** da un progetto all'altro.
 
-<!-- IMMAGINI PRIMA E DOPO -->
+**Prima e dopo.** Gli stessi brief, realizzati dalla skill prima e dopo la versione 0.12. Prima non guardava mai le pagine che produceva; ora le guarda, toglie il superfluo e rifinisce. Palestra: da quattro pulsanti arancioni pesanti a un solo stile leggero a contorno. Biblioteca: un pulsante pieno invece di due, schede più quiete.
+
+<p align="center">
+  <img src="docs/immagini/palestra-prima-dopo.png" alt="Schermata della palestra prima e dopo la versione 0.12" width="49%">
+  <img src="docs/immagini/biblioteca-prima-dopo.png" alt="Schermata della biblioteca prima e dopo la versione 0.12" width="49%">
+</p>
+
 
 ## Perché
 Le interfacce fatte con l'IA tendono a somigliarsi tutte: titolo centrato, tre card con l'ombra, gradienti viola, gli stessi font ovunque. Design evolutivo lavora in un altro modo:

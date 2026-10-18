@@ -6,7 +6,13 @@ A [Claude Code](https://code.claude.com) plugin that designs, reviews, fixes and
 
 > **Language:** the skill speaks Italian. It talks to you and writes its files in Italian.
 
-<!-- IMMAGINI PRIMA E DOPO -->
+**Before and after.** The same briefs, built by the skill before and after version 0.12. Before, it never looked at its own pages; now it looks, removes what is not needed and polishes. Gym: from four heavy orange buttons to one quiet outline style. Library: one filled button instead of two, calmer cards.
+
+<p align="center">
+  <img src="docs/immagini/palestra-prima-dopo.png" alt="Gym screen before and after version 0.12" width="49%">
+  <img src="docs/immagini/biblioteca-prima-dopo.png" alt="Library screen before and after version 0.12" width="49%">
+</p>
+
 
 ## Why
 AI-generated interfaces tend to look the same: centred hero, three cards with shadows, purple gradients, the same fonts everywhere. Design evolutivo works differently:

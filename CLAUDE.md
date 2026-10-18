@@ -80,7 +80,7 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 
 **Provato sulla v0.10** (17/10/2026, 4 sessioni): R-019 applicata a un progetto nuovo; ambito "solo qui" (vincolo nel `DESIGN.md` del progetto, non nella memoria generale); "dimentica…" (regola tra le ritirate, con il motivo).
 
-**Provato sulla v0.12** (18/10/2026): vedi `STORIA.md`, riga v0.12.
+**Provato sulla v0.12** (18/10/2026, plugin dal catalogo locale): primo uso, copia senza plugin, e tre schermate rifatte con il passo di rifinitura (dettagli in `STORIA.md`, riga v0.12; foto prima e dopo in `docs/immagini/`).
 
 **Ancora da fare:**
 - **prove rimaste**:
