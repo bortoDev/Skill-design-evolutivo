@@ -55,7 +55,7 @@ Leggi questo file quando: devi dare atmosfera a un sito con pochi elementi, prog
 - Header con due soli controlli (menu e prenota): l'azione primaria è sempre in vista.
 
 **Da non copiare / punti deboli (mobile)**
-- Icone dell'header da 24×24: al minimo di WCAG 2.5.8, sotto i 44 px (soglia di convenzione, non ricontrollata).
+- Icone dell'header da 24×24: al minimo AA di WCAG 2.5.8, sotto i 44×44 px CSS del livello AAA (2.5.5).
 - Microtesto da 9–12 px con tracking largo.
 - Il passaggio a ~650 px di sopra riportava corpo 14 px: potrebbe riferirsi a un altro elemento, quindi non lo confronto con il 18 px del paragrafo misurato qui.
 

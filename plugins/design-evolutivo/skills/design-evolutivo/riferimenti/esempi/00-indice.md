@@ -15,6 +15,8 @@ Gli esempi spiegano il perché di una scelta. Il come lo decidi tu.
 
 I siti sono stati scelti per gusto, non perché siano tutti corretti: ogni file ha una sezione di punti deboli da non imitare.
 
+Leggi anche le schede dei siti studiati dall'utente in `memoria/esempi/00-indice.md`: la modalità studia scrive lì, perché questa cartella si legge soltanto.
+
 ## 2. Cosa è stato misurato, e cosa no
 - **Misurato (desktop)** con gli stili calcolati del browser, finestra emulata 1440×900: famiglie, dimensioni, pesi, interlinee e tracking del testo; colori più usati; raggi; padding delle sezioni; altezza pagina; voci di navigazione; elemento interattivo più piccolo.
 - **Misurato (mobile)** il 16/10/2026 con viewport emulato 375×812, touch e user agent Android (non un telefono vero), stesso script per tutti gli 8: scorrimento orizzontale, meta viewport, dimensioni del testo, interattivi sotto 24 e 44 px, barre fisse, controlli del menu, titoli e paragrafo lungo. Menu aperto su tutti e 8 (su BBANG con un click da script, perché il banner cookie copriva il pulsante).
@@ -33,9 +35,17 @@ I siti sono stati scelti per gusto, non perché siano tutti corretti: ogni file 
 |---|---|
 | 1.4.3 Contrasto minimo (AA) | testo normale ≥ 4,5:1; testo grande ≥ 3:1. "Grande" = 18 pt (≈24 px) oppure 14 pt in grassetto (≈18,7 px) |
 | 2.5.8 Dimensione del target (AA) | almeno 24×24 px CSS. Eccezioni: spaziatura sufficiente, funzione equivalente, link dentro una frase, controllo del browser, presentazione essenziale |
+| 2.5.5 Dimensione del target, avanzata (AAA) | almeno 44×44 px CSS. Eccezioni: funzione equivalente, link dentro una frase, controllo del browser, presentazione essenziale (non c'è quella della spaziatura) |
 | 1.4.8 Presentazione visiva (AAA) | non più di 80 caratteri per riga; interlinea ≥ 1,5; spazio tra paragrafi ≥ 1,5 volte l'interlinea (come meccanismo regolabile dall'utente) |
 | 1.4.4 Ridimensionamento del testo (AA) | il testo si può ingrandire fino al 200 % senza assistive technology e senza perdere contenuto o funzioni (eccetto sottotitoli e immagini di testo). La pagina letta non cita `user-scalable` né `maximum-scale`; elenca solo una regola di test collegata, "Meta viewport allows for zoom" |
 | 1.4.10 Riflusso (AA) | il contenuto si dispone senza scorrimento a due dimensioni a 320 px CSS di larghezza (contenuto a scorrimento verticale) o 256 px di altezza (orizzontale), cioè 1280 px di partenza con zoom al 400 %. Eccezioni: mappe, diagrammi, video, giochi, presentazioni, tabelle dati (le celle devono comunque riflettersi), interfacce con barre degli strumenti fisse |
+| 1.4.11 Contrasto non testuale (AA) | ≥ 3:1 con i colori vicini per ciò che fa riconoscere componenti e stati (bordi dei campi, contorni, focus, icone di comando) e per le parti di grafica necessarie a capire. Esclusi i componenti disattivi e quelli lasciati all'aspetto predefinito del browser |
+| 2.4.7 Focus visibile (AA) | con la tastiera l'indicatore di focus si vede |
+| 2.4.11 Focus non coperto, minimo (AA, nuovo in 2.2) | l'elemento con il focus non è mai nascosto del tutto da contenuti dell'autore (intestazioni fisse, barre in basso, banner) |
+| 1.1.1 Contenuti non testuali (A) | ogni immagine che informa ha un testo alternativo equivalente; quelle decorative si possono ignorare (in HTML `alt=""`) |
+| 1.4.5 Immagini di testo (AA) | testo vero, non immagini di testo, salvo personalizzazione o casi essenziali; i loghi sono essenziali |
+
+Le righe 2.5.5, 1.4.11, 2.4.7, 2.4.11, 1.1.1 e 1.4.5 sono state lette il 18/10/2026 dal repository ufficiale w3c/wcag (w3.org non è raggiungibile da qui).
 
 Per le app native i valori sono stati verificati su fonti ufficiali il 16/10/2026 e stanno in [`../app-mobile.md`](../app-mobile.md): su Apple il controllo è 44×44 pt **predefinito** e 28×28 pt minimo; su Android 48×48 dp. Il corpo minimo di 16 px per il web **non** è stato verificato (16 sp è il Body Large di Material, 17 pt il testo predefinito su iOS: sono valori di piattaforma, non standard web). Anche l'effetto reale di `maximum-scale=1` sui vari browser non è stato verificato.
 
@@ -44,8 +54,8 @@ Per le app native i valori sono stati verificati su fonti ufficiali il 16/10/202
 |---|---|---|---|---|---|---|---|---|---|
 | Dishoom | serif + sans umanista | 21 px, interl. 1,3 | 32 px (H1) | #F0ECE0 / #353839 | 10,0:1 | nessuno | 2–4 px, pillole | 5 | ≈10.930 px |
 | Apple Store | SF Text / Display | 12–17 px | 80 px | #F5F5F7 / #1D1D1F | 15,5:1 | arancio #B64400 (stato) | 18 px (card) | 10 | ≈7.840 px |
-| SBC Niu Midia | VT323 + Space Grotesk + Work Sans | 16–20 px | 180 px | bianco / #0D0D0D (hero scuro) | 12,1:1 | viola, lime | 8 px, pillole | 6 (+9 sottovoci) | ≈11.420 px |
-| BBANG | Roboto | 17,5–18 px | 45 px | #13151B / bianco | 18,3:1 | teal, giallo, ciano | pillole 25–50 px | 4 + CTA | ≈8.220 px |
+| SBC Niu Midia | VT323 + Space Grotesk + Work Sans | 16–20 px | 180 px | bianco / #373636 (H2 #0D0D0D, hero scuro) | 12,0:1 | viola, lime | 8 px, pillole | 6 (+9 sottovoci) | ≈11.420 px |
+| BBANG | Roboto | 17,5–18 px | 45 px | #13151B / bianco | 18,2:1 | teal, giallo, ciano | pillole 25–50 px | 4 + CTA | ≈8.220 px |
 | okomedia | Proxima Nova + Arial | 18–20 px | 60 px | #FEFEFE / #1F1F1F | 16,3:1 | corallo (2,74:1) | quasi nessuno | 0 in header (solo hamburger); 8 nell'overlay | ≈6.150 px |
 | Montenellago | Inter + Cormorant + corsivo | 17–20 px | 120 px | bianco / #333 | 12,6:1 | mint (1,85:1 su bianco) | 3–4 px | 5 | ≈8.430 px |
 | Duca Pipe | Raleway | 16 px, interl. 1,8 | 42 px (home) | #151515 / #B6B6B6 | 9,0:1 | arancio (4,74:1) | 2–3 px | 6 | ≈3.090 px |
@@ -103,13 +113,13 @@ Tendenze mobile (descrittive, solo su questi 8):
 | Stato e trasparenza (Nielsen 1) | Apple: etichette NOVITÀ/PREORDINA e prezzo con rata e nota · Dishoom: annunci con date · Awwwards: data, punteggio, badge PRO/INT | — |
 | Awareness mismatch / contesto usato dal sistema | Apple: avviso che la posizione deriva dall'IP o da una visita precedente (dal testo letto non risulta un comando per cambiarla: da verificare) | Gap: nessun altro sito è proattivo o basato su IA |
 | Target e dimensioni cliccabili (WCAG 2.5.8) | Montenellago: CTA primarie grandi | Tutti e 8: link minori sotto i 24 px |
-| Misura di riga e interlinea (WCAG 1.4.8) | Duca: interlinea 1,8 su desktop e 1,5 su mobile, ≈43 caratteri per riga a 375 px · Dishoom: ~42–55 caratteri per riga (stima) su desktop, ≈37 su mobile | Apple: note legali ~160 caratteri (stima) · Duca: ~94 (stima, pagina Workshop su desktop) |
+| Misura di riga e interlinea (WCAG 1.4.8) | Duca: interlinea 1,8 su desktop e 1,5 su mobile, ≈43 caratteri per riga a 375 px · Dishoom: ≈37 caratteri per riga su mobile (stima) | Apple: note legali ~160 caratteri (stima) · Duca: ~94 (stima, pagina Workshop su desktop) |
 | Tipografia fluida e responsive | Awwwards: display ≈ 8,8 vw (126,7 → 42 px su mobile) · BBANG: misure frazionarie · Dishoom: H1 24→32 px tra ~650 e 1440 px · SBC: H1 180 → 72 px · Apple: 80 → 48 px | — |
 | Qualità e credibilità dei contenuti | — | BBANG: 6 testimonianze segnaposto · okomedia: © 2018, testo di tema nel markup, refusi · SBC: refusi nel testo |
 | Voce e metafora | SBC: titoli giocosi, navigazione neutra · Duca: prima persona artigiana · Dishoom: tono da lettera · Montenellago: luogo come voce | — |
 | Ritmo verticale | Dishoom: padding di sezione 64–96 px | — |
 | Mobile: menu | BBANG: popup in basso, nella zona del pollice, 4 voci · SBC: drawer con righe da 68 px, fisarmonica e CTA finale · Montenellago: overlay con 5 voci in righe da 60 px · Apple: controllo da 48×48 e lista a schermo intero | okomedia: header fisso da 140 px (≈17 % dello schermo) con hamburger 24×15 · BBANG: il banner cookie copre il pulsante del menu |
-| Mobile: target (WCAG 2.5.8; 44 px è una convenzione non verificata) | Apple: tutti i controlli dell'header ≥ 48 px · Awwwards: hamburger 54×54 · Montenellago: 55×55 | Duca: hamburger largo 22 px · okomedia: 24×15 · SBC: "×" 15×15 · Awwwards: ricerca larga 14 px · Awwwards: 44 interattivi su 97 sotto i 24 px |
+| Mobile: target (WCAG 2.5.8, AA: 24×24 px CSS; 2.5.5, AAA: 44×44 px CSS) | Apple: tutti i controlli dell'header ≥ 48 px · Awwwards: hamburger 54×54 · Montenellago: 55×55 | Duca: hamburger largo 22 px · okomedia: 24×15 · SBC: "×" 15×15 · Awwwards: ricerca larga 14 px · Awwwards: 44 interattivi su 97 sotto i 24 px |
 | Mobile: zoom (WCAG 1.4.4) | Apple: `user-scalable=1` esplicito | okomedia e Duca: `maximum-scale=1` (effetto sui browser non verificato) |
 | Mobile: microtesto | SBC e Montenellago: nessun nodo sotto 12 px | Apple: 28 nodi sotto 12 px · Awwwards: 21 · Dishoom: 10 · BBANG: 7 |
 
@@ -123,7 +133,8 @@ Tendenze mobile (descrittive, solo su questi 8):
 ## Fonti
 - [Dishoom](https://www.dishoom.com/) · [Apple Store Italia](https://www.apple.com/it/store) · [SBC Niu Midia](https://sbcniumidia.com/) · [BBANG](https://bbang.it/) · [okomedia](https://okomedia.it/) · [Cantina Montenellago](https://montenellago.it/) · [Duca Pipe](https://www.ducapipe.com/it/) · [Awwwards](https://www.awwwards.com/)
 - [WCAG 2.2 — Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
-- [WCAG 2.2 — Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+- [WCAG 2.2 — Target Size (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) · [Target Size (Enhanced)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html)
+- WCAG 2.2 — [Non-text Contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html) · [Focus Visible](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) · [Focus Not Obscured (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html) · [Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html) · [Images of Text](https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html): testo letto dal repository w3c/wcag
 - [WCAG 2.2 — Visual Presentation](https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html)
 - [WCAG 2.2 — Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html)
 - [WCAG 2.2 — Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)

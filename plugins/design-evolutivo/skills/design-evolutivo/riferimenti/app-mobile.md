@@ -1,6 +1,6 @@
 # App mobile — iOS e Android: parte comune, differenze, schede per piattaforma
 
-Letto il 16/10/2026 dalle pagine ufficiali di Apple (Human Interface Guidelines) e di Google (documentazione Android e Material). Ogni valore ha la sua fonte in fondo; ciò che non ho potuto leggere è elencato nella sezione 7.
+Letto il 16/10/2026 dalle pagine ufficiali di Apple (Human Interface Guidelines) e di Google (documentazione Android e Material). Il 17–18/10/2026 ho riletto o letto, dal loro JSON ufficiale, le pagine Apple Typography, Layout, Accessibility, Dark Mode, Color, Motion e Buttons, e i token Material su GitHub. Ogni valore ha la sua fonte in fondo; ciò che non ho potuto leggere è elencato nella sezione 7.
 Leggi questo file quando: progetti una app mobile (nativa, React Native, Flutter o web app installabile), o scegli navigazione, dimensione dei target, tipografia o gesti per telefono.
 
 **Come usarlo**
@@ -12,12 +12,12 @@ Leggi questo file quando: progetti una app mobile (nativa, React Native, Flutter
 ## 1. Cosa vale per entrambe
 | Tema | Apple (iOS, iPadOS) | Android (Material) | Per il progetto |
 |---|---|---|---|
-| Dimensione dei controlli | predefinita 44×44 pt, **minima 28×28 pt** | almeno 48×48 dp; "più grande è meglio" | **(mia scelta)** area toccabile ≥ 48 su tutti i controlli primari; sotto, solo con spazio attorno |
+| Dimensione dei controlli | predefinita 44×44 pt, **minima 28×28 pt**; per i pulsanti, "come regola generale", area di tocco di almeno 44×44 pt (Buttons) | almeno 48×48 dp; "più grande è meglio" | **(mia scelta)** area toccabile ≥ 48 su tutti i controlli primari; sotto, solo con spazio attorno |
 | Spazio tra i controlli | circa 12 pt attorno agli elementi con bordo (bezel), circa 24 pt attorno a quelli senza | la pagina letta non dà un valore | **(mia scelta)** tenere ≥ 12 tra controlli vicini |
 | Testo: dimensione | predefinita 17 pt, minima 11 pt (iOS e iPadOS) | la pagina di accessibilità non indica un minimo; nella scala Material il corpo è 16, 14 e 12 sp | i valori sono di piattaforma, non standard web |
-| Testo: ingrandimento | offrire almeno +200 % (Dynamic Type); il layout si adatta (es. elementi affiancati si impilano) | dal sistema operativo Android 14 il sistema supporta fino al 200 % con curva non lineare; unità `sp` per il testo e per l'interlinea, non per padding e altezze | testare sempre al massimo ingrandimento |
+| Testo: ingrandimento | idealmente, poter ingrandire il testo almeno al 200 % (Dynamic Type); il layout si adatta (es. elementi affiancati si impilano) | dal sistema operativo Android 14 il sistema supporta fino al 200 % con curva non lineare; unità `sp` per il testo e per l'interlinea, non per padding e altezze | testare sempre al massimo ingrandimento |
 | Contrasto | soglie WCAG AA: 4,5:1 fino a 17 pt; 3:1 da 18 pt o in grassetto. In Dark Mode almeno 4,5:1 e, per testo piccolo, puntare a 7:1 | 4,5:1 sotto 18 sp (o grassetto sotto 14 sp); 3:1 per il resto | le cifre sono in pt/sp, mentre WCAG web definisce "grande" in punti tipografici (18 pt ≈ 24 px): a parità di numero le unità differiscono. **(mia scelta)** per testo ≤ 24 px/sp resta su 4,5:1 |
-| Colore da solo | non basta: aggiungere forma o icona | (non letto) | forma o icona oltre al colore |
+| Colore da solo | non basta: aggiungere forma o icona (coppie difficili per chi non distingue i colori: rosso-verde e blu-arancio) | (non letto) | forma o icona oltre al colore |
 | Gesti | non rendere un gesto l'unico modo di fare qualcosa; offrire un'alternativa (es. un pulsante per lo swipe); i gesti personalizzati solo se servono, sono scopribili e distinti | non mettere gesti o bersagli sotto le aree dei gesti di navigazione (insets) | ogni azione importante ha un controllo visibile |
 | Area sicura | rispettare la safe area: sistema e hardware (es. Dynamic Island) non devono coprire contenuti e controlli | disegnare edge-to-edge e gestire le barre di sistema con `WindowInsets`; verificare che nulla sia coperto | nulla di importante sotto le barre di sistema o l'indicatore dei gesti |
 | Layout adattivo | usare le *size class* (compatta/regolare), non il tipo di dispositivo né l'orientamento | usare le *window size class*, la larghezza è il segnale principale; "non sono pensate per la logica tipo `isTablet`" | decidere sul **spazio disponibile**, non sul dispositivo |
@@ -46,14 +46,14 @@ Leggi questo file quando: progetti una app mobile (nativa, React Native, Flutter
 - Se la tecnologia non è decisa: parti dalla sezione 1, tratta la 2 come elenco di decisioni da prendere per piattaforma.
 
 ## 4. Scheda iOS
-- **Layout.** Ordina per importanza dall'alto e dal lato iniziale; allinea, raggruppa; rivelazione progressiva. Decidi in base alle size class, non a dispositivo o orientamento; mantieni le stesse funzioni al variare dello spazio. Con più spazio puoi passare da tab bar a sidebar.
+- **Layout.** Ordina per importanza dall'alto e dal lato iniziale; allinea, raggruppa; rivelazione progressiva. La pagina Layout non dà margini in numeri per iOS: rispetta safe area, margini e guide di sistema. Decidi in base alle size class, non a dispositivo o orientamento; mantieni le stesse funzioni al variare dello spazio. Con più spazio puoi passare da tab bar a sidebar.
 - **Safe area.** Rispettala; il fondale può estendersi sotto sidebar, toolbar e tab bar.
 - **Tab bar.** Serve a navigare, non a compiere azioni (per quelle, toolbar); resta visibile; evita l'overflow; non disabilitare né nascondere tab; etichette di una parola quando possibile; badge solo per informazioni critiche; evita colori di etichetta simili allo sfondo del contenuto.
 - **Tipografia.** Predefinita 17 pt, minima 11 pt; con font sottile usa corpi più grandi; con Dynamic Type riduci il troncamento e riorganizza il layout (testo sopra gli elementi secondari, meno colonne). Alla dimensione "Large": Large Title 34/41, Title 1 28/34, Title 2 22/28, Title 3 20/25, Headline 17/22 (semibold), Body 17/22, Callout 16/21, Subhead 15/20, Footnote 13/18, Caption 1 12/16, Caption 2 11/13 (pt / interlinea in pt).
-- **Controlli.** Predefinito 44×44 pt, minimo 28×28 pt; ~12 pt di spazio attorno a quelli con bordo, ~24 pt senza.
+- **Controlli.** Predefinito 44×44 pt, minimo 28×28 pt; ~12 pt di spazio attorno a quelli con bordo, ~24 pt senza. Pagina Buttons: "come regola generale" l'area di tocco di un pulsante è almeno 44×44 pt; uno o due pulsanti in evidenza per vista, distinti con lo stile e non con la dimensione; ogni pulsante personalizzato ha uno stato premuto. Ipotesi mia, non letta: un controllo si può disegnare più piccolo, fino a 28 pt, ma la sua area di tocco dovrebbe arrivare a 44.
 - **Gesti.** Tap, swipe, trascinamento, tocco prolungato, doppio tap, zoom, rotazione sono i gesti standard: non usarli per azioni inedite, e non creare gesti nuovi per azioni standard. Evita conflitti con i gesti di sistema.
-- **Dark Mode.** Segui il sistema, nessuna impostazione propria; sfondi di sistema (base ed elevato); contrasto ≥ 4,5:1 e, per testo piccolo, punta a 7:1; prova con Increase Contrast e Reduce Transparency; ammorbidisci le immagini con fondo bianco.
-- **Movimento.** Con Reduce Motion: sostituisci le transizioni con dissolvenze, evita blur e animazioni di profondità, restringi le molle.
+- **Dark Mode.** Segui il sistema, nessuna impostazione propria; i colori scuri non sono l'inverso di quelli chiari; ogni colore personalizzato ha varianti chiara, scura e a contrasto aumentato (Color); sfondi di sistema (base ed elevato); contrasto ≥ 4,5:1 e, per testo piccolo, punta a 7:1; prova con Increase Contrast e Reduce Transparency; ammorbidisci le immagini con fondo bianco.
+- **Movimento.** La pagina Motion non dà durate. Con Reduce Motion: riduci le animazioni automatiche e ripetute (zoom, scale, movimento ai bordi), sostituisci le transizioni con dissolvenze, evita blur e animazioni di profondità, restringi le molle. Per il web: `riferimenti/movimento-stati.md`.
 - **Tempo.** Riduci al minimo gli elementi che si chiudono da soli con un timer: chi ha bisogno di più tempo o usa tecnologie assistive ne è penalizzato.
 
 ## 5. Scheda Android
@@ -68,29 +68,30 @@ Leggi questo file quando: progetti una app mobile (nativa, React Native, Flutter
 ## 6. Soglie in sintesi e stato di verifica
 | Valore | Fonte | Stato |
 |---|---|---|
-| iOS: controllo 44×44 pt (predefinito), 28×28 pt (minimo) | Apple HIG, Accessibility | letto il 16/10/2026 |
+| iOS: controllo 44×44 pt (predefinito), 28×28 pt (minimo) | Apple HIG, Accessibility | letto il 16/10/2026, riletto il 18/10/2026 |
+| iOS: area di tocco di un pulsante ≥ 44×44 pt "come regola generale" | Apple HIG, Buttons | letto il 18/10/2026; il legame con il minimo di 28 pt è un'ipotesi (§4) |
 | iOS: spazio ~12 pt (con bordo) / ~24 pt (senza) | Apple HIG, Accessibility | letto |
 | iOS: testo 17 pt (predefinito) / 11 pt (minimo) | Apple HIG, Typography e Accessibility | letto |
-| iOS: ingrandimento ≥ 200 % | Apple HIG, Accessibility | letto |
+| iOS: ingrandimento idealmente ≥ 200 % | Apple HIG, Accessibility | letto |
 | iOS: contrasto 4,5:1 / 3:1; Dark Mode ≥ 4,5:1, obiettivo 7:1 per testo piccolo | Apple HIG, Accessibility e Dark Mode | letto |
 | Android: touch target ≥ 48×48 dp | Android, Accessibility | letto |
 | Android: contrasto 4,5:1 sotto 18 sp (grassetto sotto 14 sp), altrimenti 3:1 | Android, Accessibility | letto |
 | Android: barra di navigazione 3–5 destinazioni | Android, Layout e Navigation bar | letto |
 | Android: classi di finestra (600, 840, 1200, 1600 dp; 480, 900 dp) | Android, Window size classes | letto |
 | Android: scala dei font fino al 200 % da Android 14 | Android 14 features | letto |
-| Scala Material 3: dimensioni e pesi | Material Components Android, Typography | letto; interlinea e tracking **non** indicati nella pagina |
-| Numero massimo di tab su iOS | Apple HIG, Tab bars | **non indicato** dalla HIG; non scrivere "5" come regola di Apple |
+| Scala Material 3: dimensioni e pesi | Material Components Android, Typography | letto; interlinea e tracking letti il 17–18/10/2026 dai token ufficiali (`riferimenti/tipografia-spaziatura.md` §3) |
+| Numero massimo di tab su iOS | Apple HIG, Tab bars | **non indicato** dalla HIG; non scrivere "5" come regola di Apple. Solo se l'utente può scegliere i tab, la HIG consiglia una lista predefinita di cinque o meno. Non è un massimo generale: in tutti gli altri casi la HIG non dà un numero. |
 | Minimo di dimensione del testo su Android | Android, Accessibility | **non indicato** dalla pagina |
-| WCAG 2.5.8: 24×24 px CSS | W3C | verificato nella sessione precedente |
+| WCAG 2.5.8: 24×24 px CSS (AA); 2.5.5: 44×44 px CSS (AAA) | W3C | 2.5.8 verificato nella sessione precedente; 2.5.5 letto il 18/10/2026 dal repository w3c/wcag |
 
 Una correzione rispetto a quanto circola (e a quanto avevo scritto nell'indice): per Apple 44 pt è la dimensione predefinita e 28 pt il minimo dichiarato nella tabella dell'accessibilità.
 
 ## 7. Non letto o non verificato
-- **Apple:** pagina Navigation bars (non si è caricata), Color e Liquid Glass, Materials, Motion, Haptics, SF Symbols, Sheets e modalità, Buttons, VoiceOver.
-- **Android/Material:** componenti singoli, colore dinamico e ruoli colore, forme, movimento, tema scuro, layout canonici, interlinea e tracking della scala tipografica, font di sistema predefinito.
+- **Apple:** pagine Navigation bars (non si è caricata), Liquid Glass, Materials, Haptics, SF Symbols, Sheets e modalità, VoiceOver.
+- **Android/Material:** componenti singoli, colore dinamico e ruoli colore, forme, tema scuro, layout canonici, font di sistema predefinito. Le pagine di m3.material.io non sono raggiungibili: interlinea e tracking della scala e token di movimento vengono dai file ufficiali su GitHub (`riferimenti/tipografia-spaziatura.md` §3, `riferimenti/movimento-stati.md` §5); quando usare stili, durate e curve non è letto.
 - **Altro:** nessuna prova su dispositivi reali; la conversione delle unità (pt, dp, px CSS, unità dei framework) non è stata verificata.
 
 ## Fonti
-- Apple HIG: [Layout](https://developer.apple.com/design/human-interface-guidelines/layout) · [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) · [Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars) · [Typography](https://developer.apple.com/design/human-interface-guidelines/typography) · [Gestures](https://developer.apple.com/design/human-interface-guidelines/gestures) · [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode)
+- Apple HIG: [Layout](https://developer.apple.com/design/human-interface-guidelines/layout) · [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) · [Tab bars](https://developer.apple.com/design/human-interface-guidelines/tab-bars) · [Typography](https://developer.apple.com/design/human-interface-guidelines/typography) · [Gestures](https://developer.apple.com/design/human-interface-guidelines/gestures) · [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/dark-mode) · [Color](https://developer.apple.com/design/human-interface-guidelines/color) · [Motion](https://developer.apple.com/design/human-interface-guidelines/motion) · [Buttons](https://developer.apple.com/design/human-interface-guidelines/buttons)
 - Android: [Accessibility (app)](https://developer.android.com/guide/topics/ui/accessibility/apps) · [Layout and navigation patterns](https://developer.android.com/design/ui/mobile/guides/layout-and-content/layout-and-nav-patterns) · [Navigation bar (Compose)](https://developer.android.com/develop/ui/compose/components/navigation-bar) · [Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) · [System bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) · [Predictive back](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back) · [Navigation principles](https://developer.android.com/guide/navigation/principles) · [Android 14 features](https://developer.android.com/about/versions/14/features)
-- Material: [Typography (Material Components Android)](https://github.com/material-components/material-components-android/blob/master/docs/theming/Typography.md)
+- Material: [Typography (Material Components Android)](https://github.com/material-components/material-components-android/blob/master/docs/theming/Typography.md) · token di tipografia di Material Components Android (34.0.0) e material-web (v0.192)

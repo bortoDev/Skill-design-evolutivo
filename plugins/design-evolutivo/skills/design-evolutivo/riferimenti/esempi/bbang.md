@@ -14,7 +14,7 @@ Leggi questo file quando: devi organizzare un portfolio con due modi di filtrare
 | Navigazione | 18 px, peso 400, tracking 0,36 px |
 | Dimensioni | frazionarie (18,0002 · 21,0002 · 28,5002 · 45,0002 px): scala fluida |
 | Colori | sfondo #13151B (più #000 e #1A1A1A), testo bianco; accenti teal #00997C, giallo #F7B91E, ciano #45BEC4 |
-| Contrasto | bianco su #13151B 18,3:1 · teal 5,08:1 · giallo 10,35:1 · ciano 8,18:1 |
+| Contrasto | bianco su #13151B 18,2:1 · teal 5,08:1 · giallo 10,35:1 · ciano 8,18:1 |
 | Raggi | pillole: 50 px (26 elementi), 25 px (14), 1000 px, 64 px |
 | Testo più piccolo | 12 px, peso 300, nel banner cookie |
 | Altezza pagina | ≈8.220 px |

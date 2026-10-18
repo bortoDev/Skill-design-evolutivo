@@ -1,7 +1,7 @@
 # Fondamenta: le regole di base del design di interfacce
 
 Raccoglie in un'unica lista le regole del corso di interazione uomo–macchina dell'utente: le 10 euristiche di Nielsen, le 8 regole d'oro di Shneiderman, i 7 principi di Norman, la Gestalt, Miller, l'automazione, l'architettura dell'informazione e la tassonomia delle regole.
-Leggi questo file quando rivedi o valuti un design, o quando una scelta è in dubbio. Le soglie numeriche verificate sono in `processo/verifica.md` §1, in `riferimenti/esempi/00-indice.md` §3 e in `riferimenti/app-mobile.md`.
+Leggi questo file quando rivedi o valuti un design, o quando una scelta è in dubbio. Le soglie numeriche verificate sono in `processo/verifica.md` §1, in `riferimenti/esempi/00-indice.md` §3, in `riferimenti/tipografia-spaziatura.md`, `riferimenti/colore.md`, `riferimenti/immagini.md`, `riferimenti/movimento-stati.md` e in `riferimenti/app-mobile.md`.
 
 ## 1. Tassonomia delle regole e conflitti
 | Tipo | Cos'è | Autorità e generalità | Esempi |
@@ -62,5 +62,6 @@ La gravità dipende da **frequenza** (quanto spesso capita), **impatto** (quanto
 
 ## Fonti
 - [WCAG 2.2, criteri citati](https://www.w3.org/WAI/WCAG22/Understanding/): 1.4.3, 1.4.4, 1.4.6, 1.4.8, 1.4.10, 2.5.8
+- WCAG 2.2, altri criteri, letti il 17–18/10/2026 dal repository w3c/wcag (w3.org non è raggiungibile da qui): 1.1.1, 1.4.1, 1.4.5, 1.4.11, 1.4.12, 2.2.2, 2.3.1, 2.3.3, 2.4.7, 2.4.11, 2.4.13, 2.5.5, 4.1.3
 - [Nielsen Norman Group, gravità dei problemi di usabilità](https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/)
 - Euristiche di Nielsen, regole d'oro di Shneiderman, principi di Norman, Gestalt, Miller, tassonomia delle regole (standard, linee guida, principi, pattern), awareness mismatch e schemi di architettura dell'informazione: dal corso di interazione uomo–macchina dell'utente.

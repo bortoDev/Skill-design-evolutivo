@@ -15,7 +15,7 @@ Leggi questo file quando: devi dare personalità a un sito di studio/sviluppator
 | Testo corrente | 16–20 px (16: 48 nodi, 20: 32, 18: 25) |
 | Navigazione | Work Sans 16 px, peso 500, MAIUSCOLO, colore lime #93F203 su fondo scuro |
 | Colori | bianco, #0D0D0D, #1D1D1D, viola #6805F1, lime #93F203; testo #373636 |
-| Contrasto | viola su bianco 7,3:1 · lime su #0D0D0D 13,8:1 · #373636 su bianco 12,1:1 |
+| Contrasto | viola su bianco 7,3:1 · lime su #0D0D0D 13,8:1 · #373636 su bianco 12,0:1 |
 | Raggi | 8 px (36 elementi) e pillole 100 px (28) |
 | Altezza pagina | ≈11.420 px |
 | Interattivi più piccoli | 14 px |
@@ -50,7 +50,7 @@ Hero scuro: titolo gigante, immagine luminosa di un coniglio con occhiali, 4 voc
 | Hero | nello screenshot appariva scura e sfocata (animazione d'ingresso in corso): non valutabile |
 
 **Da portare via (mobile)**
-- Menu come drawer con righe grandi (68 px), accordion dove serve e un invito all'azione in fondo: un modello completo, con target ben sopra i 44 px (soglia di convenzione).
+- Menu come drawer con righe grandi (68 px), accordion dove serve e un invito all'azione in fondo: un modello completo, con target ben sopra i 44×44 px CSS del livello AAA (WCAG 2.5.5; il minimo AA è 24×24 px, 2.5.8).
 - Il gesto estremo si ridimensiona (180 → 72 px) e mantiene l'interlinea stretta.
 - Quasi nessun microtesto.
 
