@@ -11,7 +11,10 @@
 // - non sovrascrive mai un file che esiste già e non cancella mai niente, nemmeno la cartella di origine;
 // - regole-apprese.md si copia per ultimo: se c'è, la copia è finita. Se manca, "inizia" completa una
 //   copia lasciata a metà, copiando solo i file che mancano;
-// - "inizia" e "importa" rifiutano se la memoria ha già regole-apprese.md;
+// - "inizia" e "importa" rifiutano se la memoria ha già regole-apprese.md, e anche se la memoria esiste a
+//   metà con file che non vengono dalla stessa origine (la memoria iniziale per "inizia", la cartella
+//   indicata per "importa"): così due memorie non si mescolano. Una copia interrotta della stessa origine
+//   si completa. I file nascosti (.DS_Store, .git) non contano;
 // - stampa i percorsi assoluti e i file copiati, così la skill lo annuncia all'utente in una riga.
 // Codici di uscita: 0 fatto; 1 errore o rifiuto.
 // Nessuna dipendenza: serve solo Node.
@@ -25,6 +28,9 @@ const MEMORIA = join(homedir(), 'design-evolutivo-memoria');
 const SEME = resolve(QUI, '..', 'memoria-iniziale');
 const ESEMPI_BASE = resolve(QUI, '..', 'riferimenti', 'esempi');
 const SEGNO = 'regole-apprese.md';
+// Le schede della base in riferimenti/esempi/: da aggiornare se cambiano gli esempi della skill.
+const SCHEDE_BASE = ['00-indice.md', 'apple-store.md', 'awwwards.md', 'bbang.md', 'dishoom.md', 'duca-pipe.md',
+  'montenellago.md', 'okomedia.md', 'sbc-niu-midia.md'];
 const USO = [
   'Uso:',
   '  node memoria.mjs inizia              copia la memoria iniziale in ' + MEMORIA,
@@ -36,6 +42,7 @@ const esci = (codice, ...righe) => { (codice ? console.error : console.log)(righ
 const espandi = p => (p === '~' ? homedir() : p.startsWith('~/') || p.startsWith('~\\') ? join(homedir(), p.slice(2)) : p);
 const dentro = (figlia, madre) => { const r = relative(madre, figlia); return r === '' || (!r.startsWith('..') && !isAbsolute(r)); };
 const vero = p => { try { return realpathSync(p); } catch { return resolve(p); } };
+const elenco = a => a.slice(0, 8).join(', ') + (a.length > 8 ? ` e altri ${a.length - 8}` : '');
 
 // Tutti i file e le cartelle sotto "radice", con percorsi relativi; regole-apprese.md per ultimo.
 function elenca(radice) {
@@ -55,6 +62,17 @@ function elenca(radice) {
 }
 
 // Copia senza sovrascrivere: i file che esistono già restano come sono.
+// I file della memoria che non vengono da "origine": mancano lì o hanno un contenuto diverso.
+function estranei(origine) {
+  if (!existsSync(MEMORIA)) return [];
+  const nascosto = f => f.split(/[\\/]/).some(parte => parte.startsWith('.'));
+  const { file, saltati } = elenca(MEMORIA);
+  return [...saltati, ...file].filter(f => !nascosto(f)).filter(f => {
+    const o = join(origine, f);
+    try { return !existsSync(o) || !readFileSync(o).equals(readFileSync(join(MEMORIA, f))); } catch { return true; }
+  });
+}
+
 function copia(da, a) {
   const { file, cartelle, saltati } = elenca(da);
   const copiati = [], presenti = [];
@@ -84,7 +102,7 @@ const [, , comando, argomento] = process.argv;
 if (comando === 'dove') {
   const stato = !existsSync(MEMORIA) ? 'non esiste ancora: si crea con "node memoria.mjs inizia"'
     : existsSync(join(MEMORIA, SEGNO)) ? 'esiste'
-    : `esiste, ma senza ${SEGNO}: è una copia lasciata a metà, si completa con "node memoria.mjs inizia"`;
+    : `esiste, ma senza ${SEGNO}: è una copia lasciata a metà, si completa rilanciando lo stesso comando ("inizia" o "importa")`;
   esci(0, MEMORIA, `Stato: ${stato}`, `Memoria iniziale (sola lettura): ${SEME}`);
 }
 
@@ -96,6 +114,11 @@ if (comando === 'inizia') {
       ...(mancano.length ? [`Rispetto alla memoria iniziale mancano: ${mancano.join(', ')}. Se servono, si copiano a mano da ${SEME}, con il permesso dell'utente.`] : []));
   }
   const aMeta = existsSync(MEMORIA) && readdirSync(MEMORIA).length > 0;
+  const diversi = estranei(SEME);
+  if (diversi.length) {
+    esci(1, `In ${MEMORIA} c'è una memoria incompleta (senza ${SEGNO}) con file che non vengono dalla memoria iniziale: ${elenco(diversi)}. Non copio nulla, per non mescolare due memorie.`,
+      'Se è un\'importazione interrotta, rilancia "importa" con la stessa cartella. Altrimenti spostala, per esempio in ~/design-evolutivo-memoria-a-meta, e rilancia "inizia".');
+  }
   try {
     const esito = copia(SEME, MEMORIA);
     esci(0, `${aMeta ? 'Ho completato la memoria lasciata a metà' : 'Ho creato la memoria'} in ${MEMORIA}`,
@@ -114,18 +137,26 @@ if (comando === 'importa') {
     esci(1, `La memoria esiste già in ${MEMORIA} (c'è ${SEGNO}): non importo nulla, per non mescolare due memorie.`,
       `La cartella ${da} resta com'è.`);
   }
+  const diversi = estranei(da);
+  if (diversi.length) {
+    esci(1, `In ${MEMORIA} c'è una memoria incompleta (senza ${SEGNO}) con file diversi da quelli di ${da}: ${elenco(diversi)}. Non importo, per non mescolare due memorie.`,
+      `Spostala, per esempio in ~/design-evolutivo-memoria-a-meta, e rilancia "importa". La cartella ${da} resta com'è.`);
+  }
   let esito;
   try { esito = copia(da, MEMORIA); } catch (e) { esci(1, `Errore: ${e.message}`, `La cartella ${da} resta com'è.`); }
   const righe = [`Ho importato la memoria in ${MEMORIA}`, `Da: ${da} (non l'ho toccata né cancellata)`, ...rapporto(esito)];
-  // Schede di siti studiati nella vecchia installazione (riferimenti/esempi/ accanto alla vecchia memoria)
+  // Schede di siti studiati nella vecchia installazione (riferimenti/esempi/ accanto alla vecchia memoria).
+  // Si confrontano con l'elenco fisso della base, perché in una copia aggiornata sul posto quella cartella
+  // è anche la cartella degli esempi della skill.
   const vecchiEsempi = join(da, '..', 'riferimenti', 'esempi');
-  if (existsSync(vecchiEsempi) && statSync(vecchiEsempi).isDirectory() && existsSync(ESEMPI_BASE) && vero(vecchiEsempi) !== vero(ESEMPI_BASE)) {
-    const base = new Set(readdirSync(ESEMPI_BASE));
+  if (existsSync(vecchiEsempi) && statSync(vecchiEsempi).isDirectory()) {
+    const stessa = vero(vecchiEsempi) === vero(ESEMPI_BASE);
+    const base = new Set([...SCHEDE_BASE, ...(!stessa && existsSync(ESEMPI_BASE) ? readdirSync(ESEMPI_BASE) : [])]);
     const nuove = readdirSync(vecchiEsempi).filter(f => f.endsWith('.md') && !base.has(f));
     const indice = join(vecchiEsempi, '00-indice.md'), indiceBase = join(ESEMPI_BASE, '00-indice.md');
-    const indiceDiverso = existsSync(indice) && existsSync(indiceBase) && readFileSync(indice, 'utf8') !== readFileSync(indiceBase, 'utf8');
+    const indiceDiverso = !stessa && existsSync(indice) && existsSync(indiceBase) && readFileSync(indice, 'utf8') !== readFileSync(indiceBase, 'utf8');
     if (nuove.length || indiceDiverso) {
-      righe.push(`Nella vecchia installazione (${resolve(vecchiEsempi)}) ci sono anche ` +
+      righe.push(`In ${resolve(vecchiEsempi)} ci sono anche ` +
         [nuove.length ? `schede di siti studiati che non sono nella base: ${nuove.join(', ')}` : '', indiceDiverso ? 'un 00-indice.md diverso da quello della base' : ''].filter(Boolean).join(' e ') +
         `. Non li ho copiati: se l'utente vuole, vanno in ${join(MEMORIA, 'esempi')}.`);
     }

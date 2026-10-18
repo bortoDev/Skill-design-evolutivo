@@ -36,7 +36,7 @@ Proposti all'utente il 17 e il 18/10/2026 e non scelti come regola: non hanno un
 - Macchie sfocate, sfumature a rete o griglie di puntini usate come riempitivo.
 - Animazione di comparsa su ogni sezione durante lo scorrimento.
 - Una sola famiglia neutra per tutto, senza un gesto tipografico (non è una regola: il suo contrario è la tendenza G2 del profilo).
-- Fondo crema caldo con accento terracotta (e titoli serif molto contrastati): per la skill `frontend-design` è uno dei tratti tipici delle pagine generate oggi (osservazione di quella skill, non verificata). Nelle prove del 17/10/2026 il fondo color carta caldo è tornato in 4 prove su 5, e la palestra rifatta aveva proprio crema e terracotta. Scelto dall'utente come default da evitare il 2026-10-18.
+- Fondo crema caldo con accento terracotta (e titoli serif molto contrastati): per `frontend-design` è uno dei tratti tipici delle pagine generate (osservazione di quella skill, non verificata); il fondo chiaro caldo è tornato in 4 prove su 5 del 17/10/2026 (F-006, registro generale).
 
 ## Ritirate
 Formato: la riga originale + `· Ritirata il AAAA-MM-GG · Motivo: «parole dell'utente»`.

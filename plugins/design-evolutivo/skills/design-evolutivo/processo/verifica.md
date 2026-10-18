@@ -16,7 +16,7 @@ Leggi questo file prima di ogni consegna di design: schermata, componente, pagin
 | Testo lungo | ≤ 80 caratteri per riga; interlinea ≥ 1,5 | WCAG 2.2, 1.4.8 (AAA: obiettivo, non obbligo) |
 | Spaziatura del testo | il layout regge interlinea 1,5, paragrafi 2, lettere 0,12 e parole 0,16 volte il corpo: niente altezze fisse né testo tagliato | WCAG 2.2, 1.4.12 (AA); `riferimenti/tipografia-spaziatura.md` |
 | Testo nelle app | iOS: corpo 17 pt predefinito, minimo 11 pt · Android: testo in `sp`, prova al 200 % | `riferimenti/app-mobile.md` |
-| Font caricati | ogni famiglia e ogni peso usati arrivano davvero (campi `fontCaricati` e `fontNonCaricati` di `guarda.mjs`), con un font di riserva simile scritto nei token | processo; `riferimenti/tipografia-spaziatura.md` §6 |
+| Font caricati | ogni famiglia usata (campi `famiglie` o `stiliTesto` delle misure), salvo i font di sistema, compare in `fontCaricati` di `guarda.mjs`; se non c'è, la pagina mostra un font di riserva. `fontNonCaricati` elenca solo i file andati in errore. I pesi si controllano nel codice: ogni peso usato ha il suo file (`@font-face` o link), con `font-synthesis: none`. Un font di riserva simile è scritto nei token | processo; `riferimenti/tipografia-spaziatura.md` §6 |
 | Colore | l'informazione non passa solo dal colore | WCAG 2.2, 1.4.1 (A); nelle app anche Apple HIG, Accessibility |
 | Tema scuro | nelle app si segue il tema di sistema e i contrasti si ricalcolano anche in scuro (iOS: ≥ 4,5:1, per il testo piccolo puntare a 7:1); sul web, se c'è un tema scuro, idem | `riferimenti/app-mobile.md` |
 | Immagini | testo alternativo per le immagini che informano, `alt=""` per le decorative; niente testo dentro le immagini, salvo i loghi | WCAG 2.2, 1.1.1 (A) e 1.4.5 (AA) |
@@ -26,19 +26,19 @@ Leggi questo file prima di ogni consegna di design: schermata, componente, pagin
 | Guardata a schermo | foto guardate nella rifinitura, oppure "non guardata" dichiarato | `processo/rifinitura.md` |
 
 ## 2. Token e regole
-1. **Token** (`DESIGN.md`): caratteri, corpi, pesi, colori, spazi, raggi, ombre e durate usati nel codice vengono dai token. Un valore fuori dai token si corregge, oppure si aggiunge ai token con il motivo. Cerca `transition`, `animation` e `@keyframes`: ogni risultato è descritto in "Movimento e stati", ogni movimento descritto c'è nel codice, e con "riduci movimento" il codice fa ciò che c'è scritto. Le animazioni al caricamento sono quelle scritte in `DESIGN.md`, con il motivo.
+1. **Token** (`DESIGN.md`): caratteri, corpi, pesi, colori, spazi, raggi, ombre e durate usati nel codice vengono dai token. Un valore fuori dai token si corregge, oppure si aggiunge ai token con il motivo. Cerca `transition`, `animation` e `@keyframes` (nelle app: `withAnimation`, `.animation(`, `.transition(` in SwiftUI; `animate…AsState`, `AnimatedVisibility` in Compose): ogni risultato è descritto in "Movimento e stati", ogni movimento descritto c'è nel codice, e con "riduci movimento" il codice fa ciò che c'è scritto. Le animazioni al caricamento sono quelle scritte in `DESIGN.md`, con il motivo.
 2. Per ogni regola attiva in `memoria/regole-apprese.md` il cui ambito include questo progetto, e per ogni regola della sezione "Regole ed eccezioni di questo progetto" di `DESIGN.md` (nelle copie vecchie "Eccezioni locali"), esegui il controllo:
    - L5: esegui la ricerca indicata sui file del progetto e guarda ogni risultato;
    - L4: verifica che i valori usati siano tra quelli ammessi in `DESIGN.md`;
-   - L3: misura, elenca o conta; L2: rispondi alla domanda.
+   - L3 e L2: esegui il Controllo scritto nella regola (misura, elenco, conteggio o domanda).
 3. Applica le lezioni di processo in testa a `regole-apprese.md`.
 4. Osservazioni (L1) in `memoria/catalogo-errori.md`: per ognuna, guarda se i suoi segnali compaiono nel lavoro attuale. Nel registro (sezione "Verifiche") scrivi quali hai controllato e con che esito, anche quando non trovi nulla o quando un caso rientra nel contro-esempio: è la prova che le osservazioni vengono usate.
 5. Se trovi una violazione, correggila prima di consegnare e registrala nel registro come "intercettata in verifica": è la prova che l'apprendimento funziona.
-6. Correggi prima di consegnare anche i problemi di gravità 1, solo estetici (`riferimenti/fondamenta.md` §6): per questo utente la cura dei dettagli fa parte della qualità.
+6. Nei lavori che crei tu, correggi prima di consegnare anche i problemi di gravità 1, solo estetici (`riferimenti/fondamenta.md` §6): per questo utente la cura dei dettagli fa parte della qualità. In modalità migliora correggi solo ciò che l'utente ha scelto (`processo/migliora.md`, passo 1) ed elenca gli altri in una riga.
 
 ## 3. Anti-ripetizione e anti-default
 - Il risultato cambia almeno 1 gene rispetto al progetto precedente (l'ultimo registro chiuso con un "Genoma scelto": non il progetto in corso né il registro generale) e ai riferimenti o semi da cui prende un gene? Un gene è diverso se cambia la scelta, non solo un valore o le parole. Salvo richiesta esplicita di continuità, come in un restyling leggero. Dentro lo stesso progetto le parti restano coerenti con `DESIGN.md`.
-- **Impronta**: fondo, accento, famiglie, bordi, raggi e immagini sono uguali o molto vicini a quelli delle righe "Impronta" degli ultimi 5 progetti chiusi? Allora il motivo legato al brief sta in `DESIGN.md` (Decisioni), oppure si cambia. Non contano i valori che vengono da una tendenza confermata del profilo o da un vincolo del brief. Registro senza Impronta: ricavala dal `DESIGN.md` di quel progetto, se puoi; altrimenti saltalo e dillo.
+- **Impronta**: lo stesso controllo di `processo/direzioni.md` §6 (punto 2), fatto sul risultato costruito; un valore ripetuto ha il suo motivo in `DESIGN.md` (Decisioni), oppure si cambia.
 - Ci sono segni da interfaccia generica? Confronta con "Default da evitare" di `regole-apprese.md`: si usano solo con un motivo scritto.
 
 ## 4. Cosa dire all'utente

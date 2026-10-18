@@ -30,7 +30,7 @@ Scheda di ogni direzione (massimo 8 righe):
 
 Se puoi, accompagna le schede con un'anteprima piccola di ogni direzione: lo stesso pezzo con lo stesso contenuto (per esempio la parte alta della schermata principale a 375 px), nel rispetto di fondamenta e regole. Così l'utente confronta caratteri, colori, spazi e movimento invece di immaginarli. Se non puoi, dillo.
 
-L'utente può scegliere, scartare o mescolare ("A con il colore di C"). Registra tutto nel registro del progetto: la scelta è un dato.
+L'utente può scegliere, scartare o mescolare ("A con il colore di C"). Registra tutto nel registro del progetto: la scelta è un dato. Quando i token sono fissati in `DESIGN.md` (passo 3 di SKILL.md), scrivi nel registro la riga "Impronta" sotto "Genoma scelto", con i valori veri (fondo, accento, famiglie, bordi, raggi, immagini). Se cambiano, aggiornala prima della Chiusura.
 
 Se nessuna piace: chiedi quale gene non funziona (basta una parola per gene, es. "struttura ok, colore no"), tieni i geni promossi, cambia quelli bocciati e proponi una **nuova generazione** di 3 direzioni. Nel registro diventa "Generazione 2", con il motivo: i geni bocciati sono segnali utili quanto quelli scelti.
 
@@ -58,7 +58,7 @@ La sezione Esplorazione di `memoria/profilo-gusto.md` tiene la distanza attuale 
 Ispirazione: la regola di 1/5 delle strategie evolutive, che adatta l'ampiezza dei passi al tasso di successo.
 
 ## 6. Controllo di novità
-Prima di presentare, confronta A, B e C con gli ultimi 5 progetti chiusi del registro (con la sezione Chiusura: non il progetto in corso né il registro generale) e con i riferimenti e i semi da cui prendi un gene. Il "progetto precedente" del §2 è il più recente di questi. Se non c'è un progetto precedente, vale solo il confronto con i riferimenti. Due controlli:
+Prima di presentare, confronta A, B e C con gli ultimi 5 progetti chiusi del registro (con la sezione Chiusura compilata, cioè con una data vera e le parole dell'utente: non il progetto in corso né il registro generale) e con i riferimenti e i semi da cui prendi un gene. Il "progetto precedente" del §2 è il più recente di questi. Se non c'è un progetto precedente, vale solo il confronto con i riferimenti. Due controlli:
 1. **Geni**: verifica i vincoli del §2.
 2. **Impronta**: confronta i valori concreti (fondo, accento, famiglie, bordi, raggi, immagini) con le righe "Impronta" dei registri. Un gene descritto con parole nuove ma con gli stessi valori non è cambiato. Se un valore torna uguale o molto vicino (stessa famiglia di colore, stesso font), scrivi in `DESIGN.md` (Decisioni) il motivo legato al brief, oppure cambialo.
 

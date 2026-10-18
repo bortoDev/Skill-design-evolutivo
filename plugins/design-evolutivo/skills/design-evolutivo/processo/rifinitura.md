@@ -4,9 +4,10 @@ Leggi questo file in modalità crea e migliora, dopo ogni pezzo e prima di `proc
 
 ## 1. Guarda
 - Lancia `node strumenti/guarda.mjs <file.html o indirizzo>` (il percorso completo è in SKILL.md). Fa le foto a 375, 320 e 1440 px e a 375 in tema scuro (prima schermata e pagina intera), più una foto sfocata a 375, con "riduci movimento" attivo, e raccoglie le misure. 320 viene da WCAG 1.4.10; 375, 1440 e il raggio della sfocatura sono scelte della skill, non standard.
+- Prima di guardare le foto leggi `avvisi` e `misure.url` nel JSON: se l'indirizzo non è la pagina che volevi (per esempio `chrome-error://…`), le foto non valgono. Con il codice d'uscita 1 la pagina non si è aperta e le foto non ci sono: leggi il messaggio.
 - Apri ogni foto con lo strumento che legge i file e guardala **prima** di leggere i numeri. Le barre fisse giudicale nella foto della prima schermata: nella pagina intera coprono ciò che hanno sotto.
 - La foto sfocata mostra cosa pesa di più: deve essere ciò che l'analisi mette al primo posto.
-- Se manca Playwright (lo script esce con codice 2): usa un browser controllabile, se c'è, oppure chiedi all'utente una foto dello schermo. App native: chiedi una foto dello schermo dal simulatore o dall'emulatore, oppure guarda le anteprime (SwiftUI, Compose).
+- Se manca Playwright (lo script esce con codice 2): usa un browser controllabile, se c'è, oppure chiedi all'utente una foto dello schermo. App native: chiedi all'utente una foto dello schermo dal simulatore o dall'emulatore, o delle anteprime (SwiftUI, Compose).
 - Le foto non mostrano il movimento: leggilo nel codice e nei campi `movimento` e `movimentoSenzaRiduci`. Se non hai guardato, dillo nella consegna: "non guardata a schermo".
 
 ## 2. Il primo sguardo
@@ -30,7 +31,7 @@ Misura invece di stimare: i campi `stiliTesto`, `pulsantiPieni`, `testoVicinoAlB
 - Pochi bordi sinistri; gli elementi affiancati si allineano sulla linea di base del testo o sul centro.
 - Apostrofi, virgolette, spazi non separabili, intervalli, a capo: `riferimenti/tipografia-spaziatura.md` §6. Immagini e icone: `riferimenti/immagini.md`.
 - Ogni elemento toccabile ha uno stato premuto (Apple, Buttons) e un focus visibile (WCAG 2.4.7).
-- Movimento solo nei punti scelti nella direzione (G5, momento firma) e scritti in `DESIGN.md`, con `transform` e `opacity`. Con "riduci movimento" il cambio di stato resta visibile (`riferimenti/movimento-stati.md` §4).
+- Movimento: i punti espressivi sono quelli scelti nella direzione (G5, momento firma) e scritti in `DESIGN.md`; i cambi di stato restano brevi e discreti. Si animano di preferenza `transform`, `opacity` e i colori (pratica tecnica, non standard). Con "riduci movimento" il cambio di stato resta visibile (`riferimenti/movimento-stati.md` §1, §2, §4).
 - A 1440 px: larghezza massima e composizione decise in `DESIGN.md`. Una colonna stretta nel vuoto va bene solo se è scritta lì.
 
 ## 5. Cosa dire

@@ -50,7 +50,7 @@ Solo questi valori sono ammessi; la verifica controlla che il codice usi questi 
 - Stati (R-018): fatti · varianti statiche (`#…`) · mancanti, con il motivo
 
 ## Regole ed eccezioni di questo progetto
-Vincoli nati da "solo qui" o da motivi del progetto (brand, concorrenza, cliente) e regole della memoria sospese di proposito per tutto il progetto, sempre con il motivo. La verifica li controlla come le regole della memoria. Nei `DESIGN.md` vecchi questa sezione si chiama "Eccezioni locali".
+Vincoli nati da "solo qui" o da motivi del progetto (brand, concorrenza, cliente) e regole della memoria sospese di proposito per tutto il progetto, sempre con il motivo. La verifica li controlla come le regole della memoria.
 - AAAA-MM-GG · regola · Controllo: … · Perché: "parole dell'utente"
 - AAAA-MM-GG · R-… sospesa · motivo
 

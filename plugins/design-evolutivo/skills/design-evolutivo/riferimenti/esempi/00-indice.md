@@ -15,7 +15,7 @@ Gli esempi spiegano il perché di una scelta. Il come lo decidi tu.
 
 I siti sono stati scelti per gusto, non perché siano tutti corretti: ogni file ha una sezione di punti deboli da non imitare.
 
-Leggi anche le schede dei siti studiati dall'utente in `memoria/esempi/00-indice.md`: la modalità studia scrive lì, perché questa cartella si legge soltanto.
+Se esiste, leggi anche l'indice dei siti studiati dall'utente, `memoria/esempi/00-indice.md`: la modalità studia scrive lì, perché questa cartella si legge soltanto.
 
 ## 2. Cosa è stato misurato, e cosa no
 - **Misurato (desktop)** con gli stili calcolati del browser, finestra emulata 1440×900: famiglie, dimensioni, pesi, interlinee e tracking del testo; colori più usati; raggi; padding delle sezioni; altezza pagina; voci di navigazione; elemento interattivo più piccolo.

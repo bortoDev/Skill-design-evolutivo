@@ -1,5 +1,5 @@
 # Profilo di gusto
-Versione v0 · 2026-10-17 · si legge all'inizio di ogni lavoro di design · massimo 80 righe.
+Versione v0 · 2026-10-18 · si legge all'inizio di ogni lavoro di design · massimo 80 righe.
 Le tendenze orientano la direzione A; non vincolano B e C. Confidenza: **bassa** (ipotesi), **media** (almeno 3 segnali coerenti), **alta** (confermata dall'utente).
 "Decide il brief" vuol dire che l'utente non vuole una tendenza: la scelta nasce dal progetto, secondo la lezione di processo "niente di standard per abitudine" (`regole-apprese.md`).
 

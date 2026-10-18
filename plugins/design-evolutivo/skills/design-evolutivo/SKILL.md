@@ -26,7 +26,7 @@ Questa skill progetta e giudica interfacce e **impara** da come l'utente reagisc
    - se trovi la memoria di una vecchia installazione per copia (`${CLAUDE_SKILL_DIR}/memoria/` o `~/.claude/skills/design-evolutivo/memoria/`), chiedi se importarla con `memoria.mjs importa "<cartella>"`;
    - altrimenti di' "Primo uso: copio la memoria iniziale in ~/design-evolutivo-memoria" e lancia `memoria.mjs inizia`. Il comando non sovrascrive mai una memoria esistente;
    - se non riesce, leggi `${CLAUDE_SKILL_DIR}/memoria-iniziale/` e di' che in questa sessione ciò che impari non si salva.
-3. Se nel registro ci sono progetti chiusi (con la sezione Chiusura) e non ancora consolidati, proponi di consolidarli. Il progetto in corso si consolida quando finisce. La data dell'ultimo consolidamento è nella seconda riga di `regole-apprese.md`.
+3. Se nel registro ci sono progetti chiusi (sezione Chiusura compilata, con la data e le parole dell'utente) e non ancora consolidati, proponi di consolidarli. Il progetto in corso si consolida quando finisce. La data dell'ultimo consolidamento è nella seconda riga di `regole-apprese.md`.
 4. Se vedi che l'utente ha cambiato a mano valori di design rispetto a quanto avevi fatto (colori, dimensioni, spaziature), chiedi se sono preferenze da ricordare.
 
 ## Modalità

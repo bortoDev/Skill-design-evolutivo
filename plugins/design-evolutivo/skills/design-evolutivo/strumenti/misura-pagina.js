@@ -11,7 +11,8 @@
 // (canvas) di 1×1 pixel, che lo converte in sRGB. I colori fuori da sRGB vengono tagliati: il risultato è
 // segnato "approssimato" (controllo fatto solo per oklch, oklab, lch, lab e color(srgb)).
 // Contrasto: risale gli antenati e compone gli sfondi, anche semitrasparenti, fino al primo pieno; sotto a
-// tutto c'è il bianco. Poi compone sopra il colore del testo, anche se semitrasparente. Restituisce
+// tutto c'è il fondo del browser: bianco, oppure scuro se la pagina dichiara color-scheme dark e il tema è
+// scuro. Poi compone sopra il colore del testo, anche se semitrasparente. Restituisce
 // "non calcolabile" se trova un'immagine di sfondo (foto o gradiente) prima di uno sfondo pieno. Se un
 // antenato ha opacity minore di 1, il calcolo non ne tiene conto: il testo va in "da controllare a vista".
 // Il testo sopra foto o video posizionati non si può calcolare: controllalo a vista. Conta solo ciò che
@@ -30,9 +31,14 @@
 // violaAlLimite = tinta tra 245° e 259° (blu-viola al limite: guarda tu); al massimo 20 stili di testo
 // e 40 variabili CSS.
 // Movimento: elenca gli elementi con un'animazione CSS (animationName diverso da none), anche se è già
-// finita, e le transizioni. Non vede le animazioni fatte con JavaScript né i fogli di stile di altri
-// domini, che non si possono leggere. Con "riduci movimento" attivo (come in guarda.mjs) le animazioni
-// che la pagina spegne non compaiono: guarda.mjs le riporta in "movimentoSenzaRiduci".
+// finita, e le transizioni. Non vede le animazioni fatte con JavaScript. Con "riduci movimento" attivo
+// (come in guarda.mjs) le animazioni che la pagina spegne non compaiono: guarda.mjs le riporta in
+// "movimentoSenzaRiduci".
+// Fogli di stile: quelli di altri domini non si leggono, e nemmeno quelli collegati a una pagina aperta
+// da file (guarda.mjs avvia il browser in modo da leggerli). "fogliNonLeggibili" ne elenca gli indirizzi.
+// Se uno non si legge, riduciMovimento vale "non leggibile" e le variabili CSS vengono dallo stile
+// calcolato della radice (senza quelle interne di Tailwind, --tw-…). I fogli dei servizi di font
+// (Google Fonts, Adobe Fonts, Bunny Fonts, Fontshare) non contano: contengono solo i font.
 (() => {
   const top = (o, n = 6) => Object.entries(o).sort((a, b) => b[1] - a[1]).slice(0, n);
   const cs = (e, p) => getComputedStyle(e, p);
@@ -160,11 +166,17 @@
     return [3, 4.5, 7].some(s => r < s && t >= s) ? Math.floor(r * 100) / 100 : t;
   };
   const isTransparent = c => { const v = rgba(c); return !v || v[3] === 0; };
+  // Il fondo del browser sotto la pagina (Canvas): bianco, oppure scuro con color-scheme dark e tema scuro.
+  const sonda = document.createElement('div');
+  sonda.style.cssText = 'display:none;background-color:Canvas';
+  document.documentElement.appendChild(sonda);
+  const FONDO = (rgba(cs(sonda).backgroundColor) || [255, 255, 255]).slice(0, 3);
+  sonda.remove();
 
   // Lo strato sotto un elemento: sfondo composto, immagine di sfondo, opacità, colore approssimato.
   const memoStrato = new Map();
   const strato = el => {
-    if (!el || el.nodeType !== 1) return { rgb: [255, 255, 255], immagine: false, opacita: 1, approssimato: false };
+    if (!el || el.nodeType !== 1) return { rgb: FONDO, immagine: false, opacita: 1, approssimato: false };
     if (memoStrato.has(el)) return memoStrato.get(el);
     const s = cs(el), sotto = strato(el.parentElement), c = rgba(s.backgroundColor);
     const img = !!s.backgroundImage && s.backgroundImage !== 'none';
@@ -257,6 +269,8 @@
   function lati(n) {
     if (n === document.body || n === document.documentElement) return null;
     const s = cs(n), l = {};
+    // Evidenziazioni nel testo (mark, code): in linea e senza spazio interno ai lati, non sono scatole.
+    if (s.display === 'inline' && parseFloat(s.paddingLeft) + parseFloat(s.paddingRight) === 0) return null;
     const st = strato(n), dietro = strato(n.parentElement);
     const sfondoVisibile = !/text/.test(s.backgroundClip + ' ' + s.webkitBackgroundClip) && // non il testo con gradiente
       (st.immagine !== dietro.immagine || st.rgb.some((v, i) => Math.abs(v - dietro.rgb[i]) > 3));
@@ -402,8 +416,9 @@
     });
 
   // Segni tipici da interfaccia generata: emoji, gradienti viola, card uguali con ombra.
-  // Emoji: solo i caratteri che si mostrano come emoji (non ©, ®, ™, ↔, ★ e simili, se non seguiti da FE0F).
-  const emojiRe = /\p{Emoji_Presentation}|\p{Extended_Pictographic}️/u;
+  // Emoji: solo i caratteri che si mostrano come emoji (non ©, ®, ™, ↔, ★ e simili, se non seguiti da FE0F),
+  // più i tasti numerati (una cifra o # seguita da FE0F e 20E3).
+  const emojiRe = /\p{Emoji_Presentation}|\p{Extended_Pictographic}\u{FE0F}|\u{20E3}/u;
   const emoji = [];
   document.querySelectorAll('body *').forEach(el => {
     if (!hasOwnText(el) || !vis(el) || soloLettori(el)) return;
@@ -456,9 +471,9 @@
   });
 
   // Fogli di stile leggibili: variabili di :root (anche dentro @layer e @media, come in Tailwind v4)
-  // e regole @media (prefers-reduced-motion).
-  const vars = {}, radice = cs(document.documentElement);
-  let fogliNonLeggibili = 0, riduci = false;
+  // e regole @media (prefers-reduced-motion). Dei fogli non leggibili si tiene l'indirizzo.
+  const vars = {}, radice = cs(document.documentElement), nonLeggibili = [];
+  let riduci = false;
   const visita = regole => {
     for (const r of regole) {
       const media = r.media ? r.media.mediaText : (r.conditionText || '');
@@ -473,13 +488,21 @@
       let figli = null;
       try { figli = r.cssRules; } catch (e) { /* regola non leggibile */ }
       if (figli && figli.length) visita(figli);
-      if (r.styleSheet) { try { visita(r.styleSheet.cssRules); } catch (e) { fogliNonLeggibili++; } }
+      if (r.styleSheet) { try { visita(r.styleSheet.cssRules); } catch (e) { nonLeggibili.push(r.styleSheet.href || r.href); } }
     }
   };
   for (const sh of document.styleSheets) {
     if (sh.media && /prefers-reduced-motion/.test(sh.media.mediaText)) riduci = true;
-    let rules; try { rules = sh.cssRules; } catch (e) { fogliNonLeggibili++; continue; }
+    let rules; try { rules = sh.cssRules; } catch (e) { nonLeggibili.push(sh.href || 'foglio senza indirizzo'); continue; }
     visita(rules);
+  }
+  // I fogli dei servizi di font contengono solo @font-face: non contano.
+  const FONT = /fonts\.googleapis\.com|use\.typekit\.net|fonts\.bunny\.net|api\.fontshare\.com/;
+  const altriNonLeggibili = nonLeggibili.filter(h => !FONT.test(h));
+  if (altriNonLeggibili.length) {
+    for (const n of radice) {
+      if (n.startsWith('--') && !n.startsWith('--tw-') && !(n in vars) && Object.keys(vars).length < 40) vars[n] = radice.getPropertyValue(n).trim().slice(0, 40);
+    }
   }
   out.variabiliCSS = vars;
 
@@ -521,9 +544,9 @@
     durate: Object.fromEntries(top(durate, 10)),
     curve: Object.fromEntries(top(curve, 8)),
     transitionAll: { quanti: quantiAll, esempi: tutte },
-    riduciMovimento: riduci ? true : fogliNonLeggibili ? 'non leggibile' : false,
+    riduciMovimento: riduci ? true : altriNonLeggibili.length ? 'non leggibile' : false,
     riduciMovimentoAttivo: matchMedia('(prefers-reduced-motion: reduce)').matches,
-    fogliNonLeggibili,
+    fogliNonLeggibili: nonLeggibili.slice(0, 5).map(h => h.slice(0, 120)),
     barreFisseSenzaScrollPadding: barre.map(e => {
       const r = e.getBoundingClientRect(), lato = r.top < VH / 2 ? 'alto' : 'basso';
       const v = lato === 'alto' ? html.scrollPaddingTop : html.scrollPaddingBottom;

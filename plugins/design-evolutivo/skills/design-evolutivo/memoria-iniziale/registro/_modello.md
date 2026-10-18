@@ -32,7 +32,7 @@ Annunciato: "Imparato: …"
 Parole: "…" · Rinforza: … (gene, seme S-…)
 
 ## Verifiche
-- AAAA-MM-GG · pezzo · osservazioni controllate: E-… (esito, anche "niente" o "contro-esempio") · regole controllate: N · guardata a schermo: larghezze | no
+- AAAA-MM-GG · pezzo · osservazioni controllate: E-… (esito, anche "niente" o "contro-esempio") · regole controllate: N
 
 ## Intercettati in verifica o in rifinitura
 - AAAA-MM-GG · verifica | rifinitura · R-… o cosa si è visto nelle foto · come è stato corretto
@@ -41,7 +41,6 @@ Parole: "…" · Rinforza: … (gene, seme S-…)
 - AAAA-MM-GG · revisione di <oggetto> · osservazioni per gravità (4: … 3: … 2: … 1: …) · rapporto: <percorso>
 - Reazioni: V-01 accettata · V-04 respinta ("…") · mancava: "…" · accordo: 5/7
 - Voto: qualità … · gusto … · novità … · voto dell'utente: …
-
-## Chiusura · AAAA-MM-GG
-Cosa tiene, cosa toglie (parole dell'utente) · consolidato in: v…
 ```
+
+Quando il progetto finisce (l'utente dice che è finito o scrive `evolvi`), aggiungi in fondo `## Chiusura · AAAA-MM-GG` con la riga `Cosa tiene, cosa toglie (parole dell'utente) · consolidato in: v…`. Prima non scriverla, nemmeno vuota: un registro con la Chiusura conta come progetto chiuso (SKILL.md, passo 3).

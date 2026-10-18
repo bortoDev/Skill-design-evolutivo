@@ -29,7 +29,7 @@ Foto d'archivio o generate si usano solo come segnaposto dichiarati ("foto di es
 ## 5. Tecnica
 - Testo alternativo per le immagini che informano; quelle decorative si devono poter ignorare, in HTML con `alt=""` (WCAG 2.2, 1.1.1, A). Niente testo dentro le immagini, salvo i loghi (1.4.5, AA). `width` e `height`, oppure `aspect-ratio`; `srcset`; `loading="lazy"` solo sotto la prima schermata.
 - App Apple: immagini @2x e @3x su iOS, @2x su iPadOS; foto in JPEG o HEIC; icone e grafica piatta in PDF o SVG; grafica raster in PNG. Prova su dispositivi veri (Apple HIG, Images).
-- Tema scuro: un'immagine con fondo bianco va scurita un poco, perché il bianco non "brilli"; se un'immagine funziona in un solo tema, ne serve una per ciascuno (Apple, Dark Mode).
+- Tema scuro: Apple consiglia di scurire un poco le immagini con fondo bianco, perché il bianco non "brilli"; se un'immagine funziona in un solo tema, modificala o preparane una per tema (Apple, Dark Mode).
 
 ## Fonti (lette il 17–18/10/2026)
 - W3C, WCAG 2.2: 1.1.1 Non-text Content e 1.4.5 Images of Text, dal repository ufficiale w3c/wcag.

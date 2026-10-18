@@ -4,8 +4,8 @@ Leggi questo file al passo 3 (token), prima di costruire un pezzo con azioni e q
 
 ## 1. Due strati
 - **Cambi di stato silenziosi** (tocco, mouse, focus, selezione): di solito senza animazione, o con una transizione di colore brevissima. Non aggiungere movimento a ogni elemento: nelle app Apple consiglia di solito niente movimento sulle interazioni frequenti (Motion).
-- **Pochi punti espressivi scelti** (profilo, G5 Movimento): i punti in cui il movimento racconta l'idea del progetto (il timbro che si posa, il pallino che si riempie). Nascono dalla direzione; quanti, lo decide il progetto: il profilo non dà un numero per schermata.
-- Ogni animazione ha uno scopo, scritto in una riga (riscontro, continuità, orientamento, attenzione, carattere: vedi `interaction-design`). Senza scopo, si toglie. Apple: niente movimento aggiunto "per aggiungere movimento", e mai come unico modo di dare un'informazione (Motion).
+- **Pochi punti espressivi scelti** (profilo, G5 Movimento), come il momento firma della direzione (in `DESIGN.md`, "Movimento e stati"): i punti in cui il movimento racconta l'idea del progetto (il timbro che si posa, il pallino che si riempie). Nascono dalla direzione; quanti, lo decide il progetto: il profilo non dà un numero per schermata.
+- Ogni animazione ha uno scopo (riscontro, continuità, orientamento, attenzione, carattere: vedi `interaction-design`): se non sai dirlo in una riga, si toglie. Apple: niente movimento aggiunto "per aggiungere movimento", e mai come unico modo di dare un'informazione (Motion).
 - Rimbalzi e oscillazioni sono una scelta di tono legata al brief, come il resto del movimento.
 
 ## 2. Come si costruisce
@@ -27,9 +27,9 @@ Leggi questo file al passo 3 (token), prima di costruire un pezzo con azioni e q
 - Focus da tastiera visibile (2.4.7, AA) e mai coperto del tutto da contenuti come le barre fisse (2.4.11, AA; una soluzione tecnica: `scroll-padding` pari all'altezza della barra). Obiettivo AAA (2.4.13): indicatore grande almeno quanto un contorno di 2 px CSS, con contrasto ≥ 3:1 tra stato con e senza focus.
 
 ## 5. Durate e curve
-- Apple non dà durate: la pagina Motion non ha millisecondi. Anche sul web nessuna fonte ufficiale le fissa. Scegli poche durate e curve per ruolo (entrata, uscita, cambio sul posto) e scrivile in `DESIGN.md` con il motivo: sono scelte di progetto.
+- Apple non dà durate: la pagina Motion non ha millisecondi. Anche nelle fonti lette per il web (WCAG, bozze CSS) non ci sono durate. Scegli poche durate e curve per ruolo (entrata, uscita, cambio sul posto) e scrivile in `DESIGN.md` con il motivo: sono scelte di progetto.
 - Base facoltativa, da dichiarare "da Material": 16 durate da 50 a 1000 ms (short 50–200, medium 250–400, long 450–600, extra-long 700–1000 ms). Curve per CSS (valori web, uguali in Compose): standard `cubic-bezier(0.2, 0, 0, 1)`, standard-decelerate `(0, 0, 0, 1)`, standard-accelerate `(0.3, 0, 1, 1)`, emphasized-decelerate `(0.05, 0.7, 0.1, 1)`, emphasized-accelerate `(0.3, 0, 0.8, 0.15)`. Solo MDC Android usa altri valori per le curve emphasized. Le curve "legacy" sono probabilmente di Material 2 (non verificato): non presentarle come Material 3.
-- Molle di Material (Android): standard con smorzamento 0,9 (un piccolo rimbalzo), espressive 0,6–0,8 (più rimbalzo), 1 per gli effetti di colore e opacità.
+- Molle di Android: `riferimenti/app-mobile.md` §5.
 
 ## 6. Non letto o non verificato
 - m3.material.io (quando usare ogni durata e curva) non è raggiungibile: i valori vengono dai token ufficiali su GitHub.

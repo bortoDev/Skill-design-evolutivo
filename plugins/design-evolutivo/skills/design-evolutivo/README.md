@@ -20,7 +20,23 @@ Questo file è per te. Claude legge `SKILL.md` e la cartella `processo/`. La sto
 Il plugin si installa con due comandi, si aggiorna con uno e vale per tutti i tuoi progetti.
 
 1. Controlla la versione di Claude Code con `claude --version`. Il comando da una sessione richiede almeno la 2.1.275, quello in un solo comando dal terminale la 2.1.292 (documentazione di Claude Code, pagina "Publish and distribute a plugin", letta il 18/10/2026).
-2. Da un terminale:
+2. **Prima di installare**, prepara `~/.claude/settings.json`. Se era vuoto o non c'era, ecco il file completo:
+   ```json
+   {
+     "env": { "CLAUDE_CODE_PLUGIN_PREFER_HTTPS": "1" },
+     "permissions": {
+       "allow": [
+         "Read(~/design-evolutivo-memoria/**)",
+         "Edit(~/design-evolutivo-memoria/**)",
+         "Read(~/.claude/plugins/cache/bortodev/design-evolutivo/**)"
+       ]
+     }
+   }
+   ```
+   - La riga `env` fa scaricare il plugin con HTTPS invece che con SSH. Serve se il tuo computer non ha una chiave SSH per GitHub, o se non sai se ce l'ha; se ce l'ha, puoi toglierla. Va messa prima di installare: dal terminale l'installazione passa da sola a HTTPS, ma da una sessione, e negli aggiornamenti, no, e senza chiave SSH fallisce (documentazione, "Host and maintain a marketplace"). Il repository è pubblico, quindi con HTTPS non servono password.
+   - `permissions` contiene le tre regole che evitano le richieste di permesso: le spiega la sezione "Permessi".
+   - Se il file ha già altro contenuto, leggi la sezione "Permessi" per aggiungere solo le parti nuove.
+3. Da un terminale:
    ```
    claude plugin marketplace add bortoDev/Skill-design-evolutivo
    claude plugin install design-evolutivo@bortodev
@@ -28,38 +44,26 @@ Il plugin si installa con due comandi, si aggiorna con uno e vale per tutti i tu
    Il primo comando aggiunge il catalogo `bortodev` e si fa una volta sola. Il secondo installa il plugin `design-evolutivo` da quel catalogo.
    - In un solo comando dal terminale: `claude plugin install design-evolutivo --marketplace bortoDev/Skill-design-evolutivo`.
    - Da una sessione di Claude Code: `/plugin install design-evolutivo --marketplace bortoDev/Skill-design-evolutivo`.
-3. Se il tuo computer non ha una chiave SSH per GitHub, o se non sai se ce l'ha, aggiungi a `~/.claude/settings.json`, accanto a `"permissions"`:
-   ```json
-   "env": { "CLAUDE_CODE_PLUGIN_PREFER_HTTPS": "1" }
-   ```
-   Dal terminale l'installazione passa da sola a HTTPS; da una sessione, e negli aggiornamenti, no (documentazione, "Host and maintain a marketplace"). Il repository è pubblico, quindi con HTTPS non servono password.
-4. Aggiungi i permessi (sezione qui sotto) e apri una sessione nuova.
+4. Apri una sessione nuova.
 
 **Come si chiama.** Il comando è `/design-evolutivo:design-evolutivo`, perché Claude Code mette davanti il nome del plugin. Funziona anche la scorciatoia `/design-evolutivo`, se nessun altro comando ha quel nome. La modalità va dopo: `/design-evolutivo rivedi`. Di solito non serve chiamarla: quando chiedi un lavoro di design, Claude la usa da sola, perché ne legge la descrizione.
 
 ## Permessi
-Fuori dalla cartella del progetto, Claude Code chiede il permesso prima di leggere un file (documentazione, "Configure permissions"). Senza regole te lo chiederebbe ogni volta che legge la memoria o una guida della skill, e ogni volta che scrive la memoria. Queste tre regole lo evitano. Ecco il file `~/.claude/settings.json` completo, se prima era vuoto o non c'era:
-
-```json
-{
-  "permissions": {
-    "allow": [
-      "Read(~/design-evolutivo-memoria/**)",
-      "Edit(~/design-evolutivo-memoria/**)",
-      "Read(~/.claude/plugins/cache/bortodev/design-evolutivo/**)"
-    ]
-  }
-}
-```
+Fuori dalla cartella del progetto, Claude Code chiede il permesso prima di leggere un file (documentazione, "Configure permissions"). Senza regole te lo chiederebbe ogni volta che legge la memoria o una guida della skill, e ogni volta che scrive la memoria. Queste tre regole lo evitano. Sono nel file completo del passo 2 dell'installazione:
 
 - `Read(~/design-evolutivo-memoria/**)`: leggere la memoria.
-- `Edit(~/design-evolutivo-memoria/**)`: scriverla. Una regola `Edit` vale per tutti gli strumenti che modificano file, anche per creare un file nuovo (documentazione, "Configure permissions"). La memoria è fuori da `~/.claude`, che è una cartella protetta, quindi la regola dovrebbe bastare: letto nella documentazione, non ancora provato. Se preferisci approvare ogni scrittura una per una, togli questa riga. In tutti e due i casi la skill ti annuncia in una riga ogni cosa che impara.
+- `Edit(~/design-evolutivo-memoria/**)`: scriverla. Una regola `Edit` vale per tutti gli strumenti che modificano file, anche per creare un file nuovo (documentazione, "Configure permissions"). La memoria è fuori da `~/.claude`, che è una cartella protetta, quindi la regola dovrebbe bastare: letto nella documentazione, non ancora provato. Se preferisci approvare tu le scritture, togli questa riga. In tutti e due i casi la skill ti annuncia in una riga ogni cosa che impara.
 - `Read(~/.claude/plugins/cache/bortodev/design-evolutivo/**)`: leggere le guide della skill (`processo/`, `riferimenti/`), che Claude Code tiene in questa cartella. Il percorso segue lo schema della documentazione (`~/.claude/plugins/cache/<catalogo>/<plugin>/<versione>/`, pagina "Plugin loading reference"), ma è **da confermare dopo la prova di installazione**. Se Claude ti chiede ancora il permesso di leggere un file della skill, la richiesta mostra il percorso vero: correggi la regola con quello.
 <!-- DA VERIFICARE: percorso cache -->
 
-Se il file ha già altro contenuto, aggiungi le tre righe dentro `"allow"`; se `"permissions"` non c'è, aggiungi tutto il blocco, separato da una virgola. Se non sai modificare `settings.json`, chiedi a Claude Code: "aggiungi queste regole al mio ~/.claude/settings.json".
+Se il file ha già altro contenuto:
+- se c'è già `"allow"`, aggiungi le tre righe dentro `"allow"`;
+- se `"permissions"` non c'è, aggiungi `"permissions": { … }` così com'è nel file del passo 2, senza le graffe esterne, separato da una virgola da ciò che c'è prima;
+- se ti serve `"env"` e non c'è, aggiungilo allo stesso modo; se c'è già, aggiungi solo `"CLAUDE_CODE_PLUGIN_PREFER_HTTPS": "1"` dentro le sue graffe.
 
-**Gli strumenti.** Quando la skill lancia uno dei suoi strumenti (`node …/contrasto.mjs`, `guarda.mjs` o `memoria.mjs`), Claude Code ti chiede il permesso di eseguire il comando. Puoi rispondere "Sì" per quella volta, oppure "Sì, e non chiedere più": allora Claude Code salva la regola per quel comando, nel progetto in cui sei (in `.claude/settings.local.json`, documentazione "Configure permissions"). Anche così la skill ti dice in una riga cosa ha scritto nella memoria.
+Se non sai modificare `settings.json`, chiedi a Claude Code: "aggiungi queste regole al mio ~/.claude/settings.json".
+
+**Gli strumenti.** Quando la skill lancia uno dei suoi strumenti (`node …/contrasto.mjs`, `guarda.mjs` o `memoria.mjs`), o fa un commit `git` nella memoria (se l'hai messa sotto git, sezione "Facoltativo"), Claude Code ti chiede il permesso di eseguire il comando. Puoi rispondere "Sì" per quella volta, oppure "Sì, e non chiedere più": allora Claude Code salva la regola per quel comando, nel progetto in cui sei (in `.claude/settings.local.json`, documentazione "Configure permissions"). Anche così la skill ti dice in una riga cosa ha scritto nella memoria.
 
 ## Primo uso
 Apri Claude Code in un progetto e chiedi un lavoro di design, oppure scrivi `/design-evolutivo`. La prima volta vedrai:
@@ -91,9 +95,10 @@ git config --global user.email "la-tua-email"
 Da lì, a ogni consolidamento, la skill fa un commit "evoluzione vN: …". Git resta sul tuo computer: per una copia di sicurezza vera, copia la cartella altrove o usa un repository privato.
 
 ### Promemoria automatico
-Un hook che, nei progetti con un `DESIGN.md`, ricorda a Claude a ogni tuo messaggio di registrare i giudizi di design. Rende l'apprendimento meno dipendente dall'attenzione di Claude. Va nello stesso `~/.claude/settings.json`; ecco il file completo, con i permessi di prima:
+Un hook che, nei progetti con un `DESIGN.md`, ricorda a Claude a ogni tuo messaggio di registrare i giudizi di design. Rende l'apprendimento meno dipendente dall'attenzione di Claude. Va nello stesso `~/.claude/settings.json`; ecco il file completo, con `env` e i permessi del passo 2 dell'installazione (se hai tolto `env`, toglila anche qui; se avevi altro, tienilo):
 ```json
 {
+  "env": { "CLAUDE_CODE_PLUGIN_PREFER_HTTPS": "1" },
   "permissions": {
     "allow": [
       "Read(~/design-evolutivo-memoria/**)",
@@ -109,11 +114,11 @@ Un hook che, nei progetti con un `DESIGN.md`, ricorda a Claude a ogni tuo messag
   }
 }
 ```
-Il comando è scritto per bash (macOS e Linux; su Windows serve Git Bash, non l'ho verificato). Non è dentro il plugin di proposito: un hook del plugin girerebbe in ogni sessione, anche quando non fai design.
+Il comando è scritto per bash (macOS e Linux; su Windows serve Git Bash, non l'ho verificato). Non è dentro il plugin di proposito: così resta una tua scelta. Un hook del plugin sarebbe acceso per chiunque installi il plugin, senza che l'abbia chiesto.
 
 ## Aggiornare, mettere in pausa, disinstallare
 - **Aggiornare:** `claude plugin update design-evolutivo@bortodev`. Poi scrivi `/reload-plugins` nella sessione aperta, oppure aprine una nuova: fino ad allora la sessione usa la versione vecchia. Un aggiornamento arriva solo quando cambia il numero di versione del plugin. Gli aggiornamenti automatici sono spenti all'inizio; per accenderli: `/plugin` → Marketplaces → `bortodev` → Enable auto-update.
-- **Cosa cambia con un aggiornamento:** guide, riferimenti e strumenti. La memoria no. Per questo le novità della memoria iniziale non arrivano da sole nella tua: `STORIA.md` le elenca, e puoi dire alla skill "aggiungile".
+- **Cosa cambia con un aggiornamento:** guide, riferimenti e strumenti. La memoria no. Per questo le novità della memoria iniziale non arrivano da sole nella tua: le elenca la sezione "Migrazione da una vecchia copia", punto 5. Per averle, scrivi alla skill: «Confronta la mia memoria con memoria-iniziale/ della skill e proponimi, una alla volta, le novità della v0.12 elencate nella guida della skill (README.md, "Migrazione da una vecchia copia", punto 5). Scrivi solo quelle che approvo.»
 - **Mettere in pausa:** `claude plugin disable design-evolutivo@bortodev`; per riprendere, `claude plugin enable design-evolutivo@bortodev`. Non perdi niente.
 - **Disinstallare:** `claude plugin uninstall design-evolutivo@bortodev`. La memoria resta in `~/design-evolutivo-memoria`: la skill non usa la cartella dati del plugin (`~/.claude/plugins/data/…`), che la disinstallazione cancella. Se reinstalli, la skill ritrova la memoria com'era. Per togliere anche il catalogo: `claude plugin marketplace remove bortodev`. Per cancellare la memoria, cancella tu la cartella: la skill non lo fa mai.
 
@@ -136,21 +141,25 @@ Il file principale deve risultare in `~/.claude/skills/design-evolutivo/SKILL.md
 Serve solo se avevi installato la skill copiando la cartella prima della v0.12. Allora la memoria stava dentro la skill, in `~/.claude/skills/design-evolutivo/memoria/`. Si fa una volta:
 1. Installa il plugin (sopra). Tieni per ora la vecchia regola `Read(~/.claude/skills/design-evolutivo/**)`: serve a leggere la vecchia memoria.
 2. Apri una sessione e scrivi `/design-evolutivo:design-evolutivo`, con il nome completo: finché la vecchia copia è lì, la scorciatoia apre quella. La skill trova la vecchia memoria e ti chiede se importarla. Rispondi sì: `memoria.mjs importa` copia la vecchia memoria in `~/design-evolutivo-memoria/`, e la cartella vecchia resta com'è. Se invece vedi "Primo uso: copio la memoria iniziale…", rispondi no al permesso: la skill non ha trovato la vecchia memoria, e una memoria nuova bloccherebbe l'importazione. Controlla che la vecchia cartella sia ancora in `~/.claude/skills/design-evolutivo/` e riprova.
+   - Se la cartella c'è ma la skill non la trova, scrivile: «importa la memoria da ~/.claude/skills/design-evolutivo/memoria».
+   - Se hai già risposto sì e la memoria nuova è appena nata, l'importazione si rifiuta ("La memoria esiste già … non importo nulla"). Sposta prima la memoria nuova, poi chiedi di nuovo l'importazione: `mv ~/design-evolutivo-memoria ~/design-evolutivo-memoria-vuota`.
 3. Sposta la vecchia cartella fuori da `~/.claude/skills/`, senza cancellarla. Così Claude Code non carica più due skill, e la vecchia memoria resta come copia di sicurezza:
    ```
    mv ~/.claude/skills/design-evolutivo ~/design-evolutivo-vecchia
    ```
    Poi togli la vecchia regola `Read` da `settings.json`. Se in `~/.claude/CLAUDE.md` avevi la riga di sicurezza (sezione "Limiti"), cambiane il percorso in `~/design-evolutivo-memoria/regole-apprese.md`.
-4. **Siti studiati.** Prima le schede dei siti che facevi studiare alla skill finivano in `riferimenti/esempi/` della copia; ora vanno in `memoria/esempi/`, con un loro indice `00-indice.md`. L'importazione te le elenca ma non le copia. Chiedi alla skill: "sposta in memoria/esempi le schede dei siti che avevo studiato, con le loro righe dell'indice". A mano, per ogni scheda: `mkdir -p ~/design-evolutivo-memoria/esempi`, poi `cp ~/design-evolutivo-vecchia/riferimenti/esempi/<nome>.md ~/design-evolutivo-memoria/esempi/`.
+4. **Siti studiati.** Prima le schede dei siti che facevi studiare alla skill finivano in `riferimenti/esempi/` della copia; ora vanno in `memoria/esempi/`, con un loro indice `00-indice.md`. L'importazione te le elenca ma non le copia. Chiedi alla skill: «copia in memoria/esempi le schede dei siti che avevo studiato, da ~/design-evolutivo-vecchia/riferimenti/esempi/, e scrivi le loro righe in memoria/esempi/00-indice.md». A mano, per ogni scheda: `mkdir -p ~/design-evolutivo-memoria/esempi`, poi `cp ~/design-evolutivo-vecchia/riferimenti/esempi/<nome>.md ~/design-evolutivo-memoria/esempi/`. Poi chiedi alla skill di creare `memoria/esempi/00-indice.md` con queste schede: senza indice non le usa per le direzioni.
 5. **Novità della memoria iniziale.** La v0.12 ha cambiato la memoria iniziale, ma questi cambi non entrano da soli in una memoria che esiste già:
    - R-014 comprende le foto: foto del luogo, del prodotto o delle persone, d'archivio o generate, presentate come vere, contano come dati inventati; come segnaposto dichiarati ("foto di esempio") vanno bene;
    - la frase sulle eccezioni: le regole che vietano (R-001–R-013, R-015) ammettono un'eccezione, con il motivo scritto in `DESIGN.md`; R-014 no;
    - un default da evitare in più, non attivo: fondo crema caldo con accento terracotta (e titoli serif molto contrastati);
    - la lezione di processo 2, "Cura da alto livello";
    - nel profilo, le tendenze non ancora note: la skill le fa variare tra le direzioni A, B e C invece di chiedertele;
-   - il modello del registro (`registro/_modello.md`), con la riga "Impronta" e le sezioni "Analisi" e "Verifiche".
+   - il modello del registro (`registro/_modello.md`), con la riga "Impronta" e le sezioni "Analisi" e "Verifiche";
+   - nel catalogo errori, E-001: il movimento non fa parte della classe (rimbalzi e oscillazioni sono una scelta di tono);
+   - nel registro generale, le tue parole del 17 e 18/10 (F-004–F-008), da cui vengono queste novità.
 
-   Di' alla skill "aggiungile", oppure quali vuoi: te le mostra e annuncia ogni modifica.
+   Scrivi alla skill: «Confronta la mia memoria con memoria-iniziale/ della skill e proponimi, una alla volta, le novità della v0.12 elencate nella guida della skill (README.md, "Migrazione da una vecchia copia", punto 5). Scrivi solo quelle che approvo.» Puoi anche dirle quali vuoi. Ogni modifica te la annuncia in una riga.
 6. Se la vecchia copia era sotto git, la sua storia resta in `~/design-evolutivo-vecchia`. Per la memoria nuova, git riparte da capo (sezione "Facoltativo").
 
 Se resti senza plugin, l'ordine cambia, perché la copia nuova va nello stesso posto della vecchia:
@@ -161,7 +170,7 @@ Se resti senza plugin, l'ordine cambia, perché la copia nuova va nello stesso p
    node ~/.claude/skills/design-evolutivo/strumenti/memoria.mjs importa ~/design-evolutivo-vecchia/memoria
    ```
    Fallo prima di usare la skill: al primo uso, senza memoria, la skill creerebbe una memoria nuova, e l'importazione poi si rifiuterebbe per non mescolarle;
-4. continua con i passi 4–6.
+4. continua con i passi 4–6 e, se in `~/.claude/CLAUDE.md` avevi la riga di sicurezza, cambiane il percorso in `~/design-evolutivo-memoria/regole-apprese.md` (come al passo 3).
 
 I formati vecchi della memoria si leggono ancora (`processo/evoluzione.md` §13): non serve riscriverli.
 
@@ -172,7 +181,7 @@ I formati vecchi della memoria si leggono ancora (`processo/evoluzione.md` §13)
 - Dopo ogni pezzo, la rifinitura: Claude guarda la pagina a schermo, toglie il superfluo e cura i dettagli. Una riga dice cosa ha fatto: "Rifinitura: guardata a 375, 1440, 320 px e in scuro · tolti … · corretti …". Se non ha potuto guardarla, lo dice.
 - Quando correggi: Claude corregge, cerca lo stesso problema altrove e ti dice "Ho corretto anche…", poi "Imparato: … · vale per …".
 - Prima di consegnare: "Verifica: … regole controllate · corretti … punti".
-- **Richieste di permesso.** Con le regole della sezione "Permessi", Claude dovrebbe leggere e scrivere la memoria, e leggere le guide della skill, senza chiedere (letto nella documentazione, non ancora provato); per i comandi `node` degli strumenti chiede ancora. Senza la regola `Edit`, ti chiede il permesso a ogni scrittura nella memoria: è più lento, ma vedi ogni cosa prima che la salvi.
+- **Richieste di permesso.** Con le regole della sezione "Permessi", Claude dovrebbe leggere e scrivere la memoria, e leggere le guide della skill, senza chiedere (letto nella documentazione, non ancora provato); per i comandi `node` degli strumenti, e per i commit `git` se la memoria è sotto git, chiede ancora. Senza la regola `Edit` ti chiede il permesso quando scrive nella memoria: puoi approvare ogni volta, e vedi ogni cosa prima che la salvi, oppure per tutta la sessione (documentazione, "Configure permissions").
 
 ## Come darle feedback
 Parla normalmente. Funzionano anche frasi brevi:
@@ -271,7 +280,9 @@ Dopo il tuo giudizio ("troppo bambinesche"), 4 sessioni nuove su due progetti:
 ## Struttura
 ```
 design-evolutivo/          la skill: nel repository è plugins/design-evolutivo/skills/design-evolutivo/,
-                           con la copia è ~/.claude/skills/design-evolutivo/. Si legge e basta
+                           con la copia è ~/.claude/skills/design-evolutivo/, con il plugin è
+                           ~/.claude/plugins/cache/bortodev/design-evolutivo/<versione>/skills/design-evolutivo/
+                           (schema della documentazione, da confermare come in "Permessi"). Si legge e basta
   SKILL.md                 istruzioni per Claude: dove sono i file, modalità, regola d'oro, ciclo, flusso di creazione
   README.md                questo file
   STORIA.md                come è nata la skill, versione per versione
@@ -281,7 +292,7 @@ design-evolutivo/          la skill: nel repository è plugins/design-evolutivo/
     verifica.md            cosa controlla prima di consegnare (il critico in versione rapida)
     evoluzione.md          come impara: feedback, astrazione, soglie, livelli, consolidamento
     direzioni.md           come propone: 5 geni, 3 direzioni, operatori, distanza adattiva
-    rivedi.md              come rivede: prove, quattro lenti, gravità, rapporto, cosa impara
+    rivedi.md              come rivede: prove, cinque lenti, gravità, rapporto, cosa impara
     migliora.md            come corregge dopo una revisione
     valuta.md              come dà un voto: tre assi, ancore, prove
     studia.md              come analizza un sito che ti piace

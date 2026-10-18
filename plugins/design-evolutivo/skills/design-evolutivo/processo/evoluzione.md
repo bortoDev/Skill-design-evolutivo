@@ -27,7 +27,7 @@ Perché ci sia evoluzione servono tre cose; se ne manca una, non c'è:
 ## 2. La memoria
 | File | Contiene | Si legge | Si scrive | Limite |
 |---|---|---|---|---|
-| `registro/AAAA-MM-GG-<progetto>.md` | episodi grezzi: domande dell'analisi, direzioni proposte, scelte, genoma e impronta, feedback citati, verifiche, errori intercettati | nel consolidamento; quando generi direzioni (genomi e impronte dei progetti chiusi); in verifica (progetto precedente) | subito, a ogni feedback | nessuno (archivio) |
+| `registro/AAAA-MM-GG-<progetto>.md` | episodi grezzi: domande dell'analisi, direzioni proposte, scelte, genoma e impronta, feedback citati, verifiche, errori intercettati | nel consolidamento; quando generi direzioni (genomi e impronte dei progetti chiusi); in verifica (progetto precedente) | subito, a ogni feedback; l'Impronta quando si fissano i token | nessuno (archivio) |
 | `catalogo-errori.md` | classi d'errore: firma, cause per occorrenza, segnali, occorrenze, contro-esempi | a ogni correzione e in verifica | a ogni correzione | ~60 classi, poi unire |
 | `regole-apprese.md` | regole attive in una riga, con livello, ambito e controllo; nella riga 2 la data dell'ultimo consolidamento | all'inizio di ogni lavoro | quando una regola nasce, si allarga, si restringe, viene ritirata o cambia livello | 40 regole |
 | `profilo-gusto.md` | tendenze per gene con confidenza e prove; stato dell'esplorazione | all'inizio di ogni lavoro | solo nel consolidamento | 80 righe |
@@ -141,6 +141,8 @@ Il tipo di controllo decide il livello di partenza:
 - **misura, elenco o conteggio** oggettivi (rapporto, dimensione, contrasto) → L3;
 - **ricerca**: un pattern da cercare nei file del progetto → L5.
 
+Alcune regole della memoria iniziale sono a L3 con una domanda come controllo (per esempio R-004 e R-016): restano a L3, perché questa definizione vale per le regole nuove.
+
 Regola ritirata (sezione Ritirate di `regole-apprese.md`): la riga originale + `· Ritirata il AAAA-MM-GG · Motivo: «parole dell'utente»`; nel catalogo la classe passa a "ritirata".
 
 Annuncio all'utente, una riga: "Imparato: … · vale per … · se è sbagliato dimmelo."
@@ -166,7 +168,7 @@ Distingui i due casi:
 - la regola copriva il caso e non è stata rispettata → **sali di livello**: era esecuzione.
 
 ## 8. Crescere: il consolidamento
-Quando: a fine progetto (il registro ha la sezione Chiusura), quando l'utente scrive `evolvi`, o quando un file sempre letto supera il limite. All'inizio di un lavoro si propone solo per i progetti chiusi: il progetto in corso si consolida quando finisce.
+Quando: a fine progetto (la sezione Chiusura ha una data vera e le parole dell'utente, non solo il titolo del modello), quando l'utente scrive `evolvi`, o quando un file sempre letto supera il limite. All'inizio di un lavoro si propone solo per i progetti chiusi: il progetto in corso si consolida quando finisce.
 Le proposte dei passi 4, 5, 6 e 9 si scrivono solo con il sì dell'utente (passo 11).
 1. Leggi i registri dei progetti chiusi e non ancora consolidati, e le voci del registro generale dopo l'ultima riga "— consolidato fin qui in v… —". La data dell'ultimo consolidamento è nella riga 2 di `regole-apprese.md` (nelle copie vecchie, nel diario).
 2. Completa le voci rimaste senza astrazione.
