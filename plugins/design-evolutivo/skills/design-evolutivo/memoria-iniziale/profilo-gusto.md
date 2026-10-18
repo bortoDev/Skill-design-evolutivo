@@ -20,7 +20,7 @@ Le tendenze orientano la direzione A; non vincolano B e C. Confidenza: **bassa**
 Origine: analisi degli 8 siti (`riferimenti/esempi/00-indice.md`, 15 e 16/10/2026), confermata o corretta dall'utente il 17/10/2026.
 
 ## Non ancora noto
-(niente per ora) Quando un progetto tocca un aspetto del gusto che qui non c'è, chiedi all'utente invece di scegliere per abitudine.
+(niente per ora) Quando un progetto tocca un aspetto del gusto che qui non c'è, fallo variare tra le direzioni A, B e C e lascia scegliere l'utente; chiedi a parole solo se non si può mostrare. La scelta va nel registro: tre scelte coerenti diventano una tendenza da proporre.
 
 ## Esplorazione
 - Distanza attuale della direzione C: 3 geni.

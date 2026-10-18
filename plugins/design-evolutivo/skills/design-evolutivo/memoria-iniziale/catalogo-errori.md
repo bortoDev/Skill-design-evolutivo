@@ -21,5 +21,5 @@ Segnali: pulsanti pieni e squadrati come blocchi; caratteri molto grassi o compr
 Occorrenze:
 - F-001 (generale, 2026-10-17): palestra delle prove, pulsanti "Prenota" arancioni pieni, orari in grassetto compresso, tutto grande · causa C3 · "nella palestra non è adatto"
 - F-002 (generale, 2026-10-17): biblioteca delle prove, in misura minore · causa C3 · "sarebbe da elegantizare anche li"
-Contro-esempio: la pasticceria delle prove, dove lo stile morbido era adatto (F-003, generale)
+Contro-esempio: la pasticceria delle prove, dove lo stile morbido era adatto (F-003, generale). Il movimento non fa parte di questa classe: rimbalzi e oscillazioni sono una scelta di tono legata al brief (F-005, generale)
 Collegate: —

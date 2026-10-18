@@ -1,5 +1,5 @@
 # Semi
-Idee da cui far nascere le direzioni. Si legge quando generi direzioni. Stato: nuovo · provato · scelto · scartato (con motivo).
+Idee da cui far nascere le direzioni. Si legge quando generi direzioni. Stato: nuovo · provato · scelto · scartato (con motivo) · attivo (idee di processo dell'utente, sempre valide).
 
 ## Idee dell'utente
 S-001 · processo · "Siti che mi piacciono come esempi, ma per creare cose nuove, non copie" · utente, 2026-10-15 · attivo: è la regola "cambia almeno 1 gene su 5"
