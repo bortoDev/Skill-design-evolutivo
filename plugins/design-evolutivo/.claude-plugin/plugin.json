@@ -1,0 +1,14 @@
+{
+  "name": "design-evolutivo",
+  "displayName": "Design evolutivo",
+  "version": "0.12.0",
+  "description": "Progetta, rivede, corregge e valuta interfacce (siti, web app, app iOS e Android) e impara dalle tue correzioni da un progetto all'altro. La skill lavora in italiano.",
+  "author": {
+    "name": "bortoDev",
+    "url": "https://github.com/bortoDev"
+  },
+  "homepage": "https://github.com/bortoDev/Skill-design-evolutivo",
+  "repository": "https://github.com/bortoDev/Skill-design-evolutivo",
+  "license": "MIT",
+  "keywords": ["design", "ui", "ux", "interfacce", "accessibilita", "italiano"]
+}

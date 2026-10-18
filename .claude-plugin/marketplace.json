@@ -1,0 +1,15 @@
+{
+  "name": "bortodev",
+  "description": "Plugin di bortoDev per Claude Code",
+  "owner": {
+    "name": "bortoDev",
+    "url": "https://github.com/bortoDev"
+  },
+  "plugins": [
+    {
+      "name": "design-evolutivo",
+      "source": "./plugins/design-evolutivo",
+      "description": "Progetta e giudica interfacce e impara dal tuo gusto, progetto dopo progetto"
+    }
+  ]
+}
