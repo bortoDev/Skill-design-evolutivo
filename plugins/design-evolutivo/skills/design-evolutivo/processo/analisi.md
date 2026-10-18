@@ -32,20 +32,20 @@ Ogni compito prende un livello:
 ## 4. Le domande giuste
 Una domanda è giusta se la risposta cambia il design. Prima di farla, chiediti: "Se la risposta fosse diversa, disegnerei in un altro modo?" Se no, non chiederla: scegli tu e dichiaralo.
 - Raggruppa le domande in un solo messaggio, ognuna con la risposta che consigli.
-- Esempio di domanda giusta: "Chi aggiorna il menu, e quanto spesso?" decide se il menu è un testo modificabile o un'immagine.
+- Esempi di domande giuste: "Chi aggiorna il menu, e quanto spesso?" decide se il menu è un testo modificabile o un'immagine. "Ci sono foto vere (prodotti, luogo, persone), e chi può scattarle?" decide se il layout ha gli spazi per le foto, segnaposto dichiarati o un design tipografico (`riferimenti/immagini.md`).
 - Esempio di domanda sbagliata: "Che colore preferisci?" prima delle direzioni. Il colore lo propongono le direzioni.
 
 ## 5. Piano a pezzi
 Scomponi il lavoro in pezzi piccoli, ognuno da consegnare e giudicare da solo, in ordine di priorità. Un ordine tipico:
 1. **Mappa**: schermate o pagine e navigazione, ricavate dai compiti (`riferimenti/fondamenta.md` §5).
 2. **Flusso essenziale**: i passi del compito più importante, anche solo come struttura.
-3. **Direzioni e fondamenta** (passi 2 e 3 del flusso di creazione), sul pezzo più importante.
+3. **Direzioni e fondamenta** (passi 2 e 3 del flusso di creazione), sul pezzo più importante. Mappa e flusso essenziale vengono prima perché sono struttura; le direzioni decidono l'aspetto.
 4. **Schermate essenziali**, una alla volta, ognuna con tutti i suoi stati.
 5. **Schermate e funzioni importanti.**
 6. **Ciò che è marginale**, solo se resta tempo e serve.
 
-Scrivi il piano in `DESIGN.md`, sezione "Piano a pezzi", e fallo approvare all'utente prima di disegnare. Dopo ogni pezzo: verifica rapida, consegna e feedback, poi il pezzo successivo. Ogni consegna è un'occasione di feedback, quindi di apprendimento (`processo/evoluzione.md`).
+Scrivi il piano in `DESIGN.md`, sezione "Piano a pezzi", e fallo approvare all'utente prima di disegnare. Dopo ogni pezzo: rifinitura (`processo/rifinitura.md`), verifica rapida, consegna e feedback, poi il pezzo successivo. Ogni consegna è un'occasione di feedback, quindi di apprendimento (`processo/evoluzione.md`).
 
 ## 6. Cosa scrivere
-- In `DESIGN.md`: Brief, Analisi (stakeholder, compiti con priorità) e Piano a pezzi, con lo stato di ogni pezzo. Così una sessione nuova riprende dal punto giusto.
-- Nel registro del progetto (`memoria/registro/`): le domande fatte e le risposte dell'utente, con le sue parole.
+- In `DESIGN.md`: Brief (con il tipo di progetto e le immagini: ci sono foto vere? chi le fornisce?), Analisi (stakeholder, compiti con priorità) e Piano a pezzi, con lo stato di ogni pezzo. Così una sessione nuova riprende dal punto giusto.
+- Nel registro del progetto (`memoria/registro/`, sezione "Analisi · domande e risposte"): le domande fatte, la risposta che consigliavi e le parole dell'utente.
