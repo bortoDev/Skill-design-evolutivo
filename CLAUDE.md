@@ -41,6 +41,7 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
 10. **I file letti a ogni lavoro restano corti.** `SKILL.md` fa da indice e i dettagli stanno in file letti solo quando servono; i limiti sono 40 regole e 80 righe di profilo. La descrizione nel frontmatter mette all'inizio le parole chiave (interfacce, siti, app, schermate), perché con molte skill installate Claude Code la accorcia.
 11. **Ogni versione nuova va in `STORIA.md`**, nella tabella delle versioni e nello stato del piano. I commit dicono cosa cambia e perché.
 12. **I percorsi `${…}` si scrivono solo in `SKILL.md`.** Claude Code li sostituisce solo lì; negli altri file `memoria/…` vuol dire `~/design-evolutivo-memoria/` e i comandi degli strumenti rimandano a `SKILL.md`. La skill non scrive mai nella propria cartella: con il plugin si sostituisce a ogni aggiornamento.
+13. **Il repository è pubblico: niente dati privati.** Il collegamento alle note dell'utente (v0.13) resta generico: nessun indirizzo, nome di server, porta, token, percorso del suo computer o contenuto delle sue note. Si nominano al massimo i tool del connector come esempio. Prima di ogni push, cercare indirizzi e chiavi nei file modificati.
 
 ## Provare la skill
 - Si modifica qui, mai nella copia installata: la cache del plugin si sostituisce a ogni aggiornamento, e `~/.claude/skills/` è una cartella protetta.
@@ -64,7 +65,9 @@ Sono nate mentre costruivamo la skill. Rispettale anche quando sembra di poterla
   - `HOME=$(mktemp -d) node strumenti/memoria.mjs inizia` deve copiare 7 file, e rifiutare se lanciato una seconda volta.
 - La modalità `studia` su siti veri e le misure interattive richiedono un browser: `guarda.mjs` (Playwright) oppure un browser controllabile da Claude Code, come Claude in Chrome.
 
-## Stato (v0.12, 18/10/2026)
+## Stato (v0.13, 26/11/2026)
+**v0.13, non ancora provata:** collegamento facoltativo al second brain dell'utente (`SKILL.md`, passo 5 e "Note esterne").
+
 **Provato sulla v0.5** (16/10/2026):
 - la skill si carica sia come skill personale sia come skill di progetto, e legge la memoria;
 - i permessi;
