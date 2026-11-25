@@ -94,6 +94,13 @@ git config --global user.email "la-tua-email"
 ```
 Da lì, a ogni consolidamento, la skill fa un commit "evoluzione vN: …". Git resta sul tuo computer: per una copia di sicurezza vera, copia la cartella altrove o usa un repository privato.
 
+### Collegamento al tuo second brain
+Se usi un second brain raggiunto con un connector (per esempio un vault di note con tool come `brain_search` e `brain_read`), la skill lo usa da sola: prima di ogni lavoro cerca la mappa dell'area di design, la legge e apre solo le note utili. Te lo dice in una riga.
+- Nel brain vanno le conoscenze che arrivano da fonti: video, articoli, principi, ricette di codice. Nella memoria della skill resta il tuo gusto.
+- Basta un'area di design con una nota "mappa" che elenca le altre note e dice come aggiungere una fonte nuova.
+- Il repository non contiene nessun dato del tuo collegamento: indirizzo e accesso del connector restano nelle impostazioni di Claude.
+- Senza connector la skill funziona come prima.
+
 ### Promemoria automatico
 Un hook che, nei progetti con un `DESIGN.md`, ricorda a Claude a ogni tuo messaggio di registrare i giudizi di design. Rende l'apprendimento meno dipendente dall'attenzione di Claude. Va nello stesso `~/.claude/settings.json`; ecco il file completo, con `env` e i permessi del passo 2 dell'installazione (se hai tolto `env`, toglila anche qui; se avevi altro, tienilo):
 ```json

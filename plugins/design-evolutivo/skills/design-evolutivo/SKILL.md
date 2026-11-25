@@ -28,6 +28,7 @@ Questa skill progetta e giudica interfacce e **impara** da come l'utente reagisc
    - se non riesce, leggi `${CLAUDE_SKILL_DIR}/memoria-iniziale/` e di' che in questa sessione ciò che impari non si salva.
 3. Se nel registro ci sono progetti chiusi (sezione Chiusura compilata, con la data e le parole dell'utente) e non ancora consolidati, proponi di consolidarli. Il progetto in corso si consolida quando finisce. La data dell'ultimo consolidamento è nella seconda riga di `regole-apprese.md`.
 4. Se vedi che l'utente ha cambiato a mano valori di design rispetto a quanto avevi fatto (colori, dimensioni, spaziature), chiedi se sono preferenze da ricordare.
+5. **Note dell'utente (facoltativo).** Se nella sessione c'è un connector delle note dell'utente (un second brain, per esempio con tool di ricerca e lettura come `brain_search` e `brain_read`) e le note hanno un'area di design, cerca la sua mappa (es. "mappa design"), leggila e apri solo le note utili al lavoro: principi, checklist, ricette di codice, casi. Di' in una riga cosa hai letto (es. "Note: mappa design, ricette di animazione"). Nella gerarchia queste note valgono come principi e pattern; non sostituiscono il gusto in `memoria/`. Senza connector la skill funziona come prima. Vedi "Note esterne" più sotto.
 
 ## Modalità
 Una sola skill, una sola memoria: ogni modalità legge e alimenta lo stesso gusto appreso. Riconosci la modalità dalla richiesta, oppure dall'argomento (`/design-evolutivo rivedi`, o con il plugin `/design-evolutivo:design-evolutivo rivedi`).
@@ -90,4 +91,10 @@ Se una preferenza dell'utente viola uno standard, dillo e proponi la variante pi
 - Un segnale debole (una sola scelta, un "carino") non diventa regola.
 - Ogni modifica a `memoria/` si annuncia: l'utente deve sapere cosa il sistema ha imparato e poterlo correggere.
 - Gusto ed errori di design vanno in questa memoria, che vale per tutti i progetti; non nella memoria automatica di Claude Code, che vale per un solo repository.
+
+## Note esterne (second brain)
+- **Divisione:** `memoria/` tiene il gusto dell'utente e ciò che la skill impara dalle sue correzioni. L'area di design delle note tiene le conoscenze che arrivano da fonti (video, articoli, studi): principi, evidenze, ricette di codice.
+- **Nuova fonte di design che non è un sito** (video, articolo, libro): se c'è il connector, va nelle note seguendo la procedura scritta nella loro mappa, e si annuncia in una riga. Un sito o un'app da studiare resta nella modalità `studia`.
+- **Scritture:** solo quelle che la mappa prevede, sempre annunciate (regola d'oro). Mai copiare nelle note la memoria di `memoria/`, né il contrario.
+- **Nessun dato di collegamento nei file della skill:** indirizzi, server e credenziali del connector stanno nelle impostazioni dell'utente, mai qui o in `DESIGN.md`.
 - I file letti a ogni lavoro restano corti: `regole-apprese.md` al massimo 40 regole, `profilo-gusto.md` al massimo 80 righe. Oltre, consolida.
